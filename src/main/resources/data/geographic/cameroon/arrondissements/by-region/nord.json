@@ -1,0 +1,32 @@
+{
+  "Bénoué": [
+    {"name": "Garoua 1er", "chefLieu": "Garoua"},
+    {"name": "Garoua 2e", "chefLieu": "Garoua"},
+    {"name": "Garoua 3e", "chefLieu": "Garoua"},
+    {"name": "Bibemi", "chefLieu": "Bibemi"},
+    {"name": "Dembo", "chefLieu": "Dembo"},
+    {"name": "Lagdo", "chefLieu": "Lagdo"},
+    {"name": "Mayo-Hourna", "chefLieu": "Mayo-Hourna"},
+    {"name": "Ngong", "chefLieu": "Ngong"},
+    {"name": "Pitoa", "chefLieu": "Pitoa"},
+    {"name": "Touroua", "chefLieu": "Touroua"}
+  ],
+  "Faro": [
+    {"name": "Poli", "chefLieu": "Poli"},
+    {"name": "Belel", "chefLieu": "Belel"},
+    {"name": "Beka", "chefLieu": "Beka"},
+    {"name": "Gashiga", "chefLieu": "Gashiga"}
+  ],
+  "Mayo-Louti": [
+    {"name": "Guider", "chefLieu": "Guider"},
+    {"name": "Figuil", "chefLieu": "Figuil"},
+    {"name": "Mayo-Oulo", "chefLieu": "Mayo-Oulo"}
+  ],
+  "Mayo-Rey": [
+    {"name": "Tcholliré", "chefLieu": "Tcholliré"},
+    {"name": "Rey-Bouba", "chefLieu": "Rey-Bouba"},
+    {"name": "Pol", "chefLieu": "Pol"},
+    {"name": "Touboro", "chefLieu": "Touboro"}
+  ]
+}
+

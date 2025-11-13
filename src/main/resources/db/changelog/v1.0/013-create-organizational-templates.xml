@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <!-- Créer la table des templates organisationnels -->
+    <changeSet id="013-1-create-organizational-templates-table" author="hrms">
+        <createTable tableName="organizational_templates">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="applies_to" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column name="structure_definition" type="TEXT"/>
+            <column name="metadata" type="TEXT"/>
+            <column name="version" type="INT" defaultValueNumeric="1"/>
+            <column name="active" type="BOOLEAN" defaultValueBoolean="true"/>
+            <column name="deleted" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+            <column name="deleted_by" type="VARCHAR(100)"/>
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="created_date" type="DATE"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column name="updated_date" type="DATE"/>
+        </createTable>
+
+        <createIndex tableName="organizational_templates" indexName="idx_org_template_code">
+            <column name="code"/>
+        </createIndex>
+        <createIndex tableName="organizational_templates" indexName="idx_org_template_applies_to">
+            <column name="applies_to"/>
+        </createIndex>
+        <createIndex tableName="organizational_templates" indexName="idx_org_template_active">
+            <column name="active"/>
+        </createIndex>
+    </changeSet>
+
+    <!-- Créer la table des templates de postes organisationnels -->
+    <changeSet id="013-2-create-organizational-position-templates-table" author="hrms">
+        <createTable tableName="organizational_position_templates">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(100)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="title" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="organizational_template_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sub_structure_code" type="VARCHAR(100)"/>
+            <column name="level" type="INT"/>
+            <column name="parent_position_code" type="VARCHAR(100)"/>
+            <column name="count" type="INT" defaultValueNumeric="1"/>
+            <column name="required_grade" type="VARCHAR(50)"/>
+            <column name="required_corps" type="VARCHAR(100)"/>
+            <column name="minimum_experience_years" type="INT"/>
+            <column name="is_nominative" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="is_managerial" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="category" type="VARCHAR(50)"/>
+            <column name="description" type="TEXT"/>
+            <column name="responsibilities" type="TEXT"/>
+            <column name="required_qualifications" type="TEXT"/>
+            <column name="active" type="BOOLEAN" defaultValueBoolean="true"/>
+            <column name="deleted" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+            <column name="deleted_by" type="VARCHAR(100)"/>
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="created_date" type="DATE"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column name="updated_date" type="DATE"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="organizational_position_templates"
+                baseColumnNames="organizational_template_id"
+                constraintName="fk_org_pos_template_org_template"
+                referencedTableName="organizational_templates"
+                referencedColumnNames="id"
+                onDelete="CASCADE"
+                onUpdate="CASCADE"/>
+
+        <createIndex tableName="organizational_position_templates" indexName="idx_org_pos_template_code">
+            <column name="code"/>
+        </createIndex>
+        <createIndex tableName="organizational_position_templates" indexName="idx_org_pos_template_org_template">
+            <column name="organizational_template_id"/>
+        </createIndex>
+        <createIndex tableName="organizational_position_templates" indexName="idx_org_pos_template_category">
+            <column name="category"/>
+        </createIndex>
+        <createIndex tableName="organizational_position_templates" indexName="idx_org_pos_template_level">
+            <column name="level"/>
+        </createIndex>
+    </changeSet>
+
+    <!-- Ajouter les colonnes de référence aux templates dans administrative_structures -->
+    <changeSet id="013-3-add-template-reference-to-structures" author="hrms">
+        <addColumn tableName="administrative_structures">
+            <column name="organizational_template_id" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <addColumn tableName="administrative_structures">
+            <column name="sub_structure_template_code" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <addForeignKeyConstraint
+                baseTableName="administrative_structures"
+                baseColumnNames="organizational_template_id"
+                constraintName="fk_structure_org_template"
+                referencedTableName="organizational_templates"
+                referencedColumnNames="id"
+                onDelete="SET NULL"
+                onUpdate="CASCADE"/>
+
+        <createIndex tableName="administrative_structures" indexName="idx_structure_org_template">
+            <column name="organizational_template_id"/>
+        </createIndex>
+    </changeSet>
+
+    <!-- Ajouter les colonnes de référence aux templates dans positions -->
+    <changeSet id="013-4-add-template-reference-to-positions" author="hrms">
+        <addColumn tableName="positions">
+            <column name="organizational_position_template_id" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <addForeignKeyConstraint
+                baseTableName="positions"
+                baseColumnNames="organizational_position_template_id"
+                constraintName="fk_position_org_pos_template"
+                referencedTableName="organizational_position_templates"
+                referencedColumnNames="id"
+                onDelete="SET NULL"
+                onUpdate="CASCADE"/>
+
+        <createIndex tableName="positions" indexName="idx_position_org_pos_template">
+            <column name="organizational_position_template_id"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

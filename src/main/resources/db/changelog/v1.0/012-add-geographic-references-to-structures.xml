@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <!-- Ajouter les colonnes pour référencer les entités géographiques -->
+    <changeSet id="012-1-add-geographic-columns-to-structures" author="hrms">
+
+        <!-- Ajouter colonne region_id -->
+        <addColumn tableName="administrative_structures">
+            <column name="region_id" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <!-- Ajouter colonne department_id -->
+        <addColumn tableName="administrative_structures">
+            <column name="department_id" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <!-- Ajouter colonne arrondissement_id -->
+        <addColumn tableName="administrative_structures">
+            <column name="arrondissement_id" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+    </changeSet>
+
+    <!-- Ajouter les foreign keys -->
+    <changeSet id="012-2-add-geographic-foreign-keys" author="hrms">
+
+        <addForeignKeyConstraint
+                baseTableName="administrative_structures"
+                baseColumnNames="region_id"
+                constraintName="fk_structure_region"
+                referencedTableName="regions"
+                referencedColumnNames="id"
+                onDelete="SET NULL"
+                onUpdate="CASCADE"/>
+
+        <addForeignKeyConstraint
+                baseTableName="administrative_structures"
+                baseColumnNames="department_id"
+                constraintName="fk_structure_department"
+                referencedTableName="departments"
+                referencedColumnNames="id"
+                onDelete="SET NULL"
+                onUpdate="CASCADE"/>
+
+        <addForeignKeyConstraint
+                baseTableName="administrative_structures"
+                baseColumnNames="arrondissement_id"
+                constraintName="fk_structure_arrondissement"
+                referencedTableName="arrondissements"
+                referencedColumnNames="id"
+                onDelete="SET NULL"
+                onUpdate="CASCADE"/>
+
+    </changeSet>
+
+    <!-- Ajouter les indexes -->
+    <changeSet id="012-3-add-geographic-indexes" author="hrms">
+
+        <createIndex tableName="administrative_structures" indexName="idx_structure_region">
+            <column name="region_id"/>
+        </createIndex>
+
+        <createIndex tableName="administrative_structures" indexName="idx_structure_department">
+            <column name="department_id"/>
+        </createIndex>
+
+        <createIndex tableName="administrative_structures" indexName="idx_structure_arrondissement">
+            <column name="arrondissement_id"/>
+        </createIndex>
+
+    </changeSet>
+
+    <!-- Supprimer les anciennes colonnes VARCHAR (region, department, arrondissement) -->
+    <changeSet id="012-4-drop-old-geographic-columns" author="hrms">
+        <comment>
+            Supprime les anciennes colonnes VARCHAR pour region, department et arrondissement
+            car elles sont maintenant remplacées par des foreign keys vers les tables géographiques
+        </comment>
+
+        <dropColumn tableName="administrative_structures" columnName="region"/>
+        <dropColumn tableName="administrative_structures" columnName="department"/>
+        <dropColumn tableName="administrative_structures" columnName="arrondissement"/>
+
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <!--
+        Migration 015: Mise à jour de la table personnel
+        - Ajout des origines géographiques (région, département, arrondissement)
+        - Remplacement du champ grade (String) par current_grade_id (FK vers grades)
+        - Suppression des champs corps et category (déduits via grade)
+        - Ajout des champs échelon et indice
+    -->
+
+    <!-- Changeset 1: Ajouter les colonnes des origines géographiques -->
+    <changeSet id="015-1" author="system">
+        <addColumn tableName="personnel">
+            <!-- Région d'origine (obligatoire) -->
+            <column name="region_origine_id" type="BIGINT">
+                <constraints nullable="true"/> <!-- NULL temporairement pour permettre la migration -->
+            </column>
+
+            <!-- Département d'origine (obligatoire) -->
+            <column name="department_origine_id" type="BIGINT">
+                <constraints nullable="true"/> <!-- NULL temporairement -->
+            </column>
+
+            <!-- Arrondissement d'origine (optionnel) -->
+            <column name="arrondissement_origine_id" type="BIGINT">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Renommer l'ancienne colonne region (résidence) -->
+            <!-- On garde region_residence pour la région de résidence actuelle -->
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="personnel" columnName="region_origine_id"/>
+            <dropColumn tableName="personnel" columnName="department_origine_id"/>
+            <dropColumn tableName="personnel" columnName="arrondissement_origine_id"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 2: Renommer la colonne region en region_residence -->
+    <changeSet id="015-2" author="system">
+        <renameColumn tableName="personnel"
+                      oldColumnName="region"
+                      newColumnName="region_residence"
+                      columnDataType="VARCHAR(100)"/>
+
+        <rollback>
+            <renameColumn tableName="personnel"
+                          oldColumnName="region_residence"
+                          newColumnName="region"
+                          columnDataType="VARCHAR(100)"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 3: Ajouter la colonne current_grade_id (FK vers grades) -->
+    <changeSet id="015-3" author="system">
+        <addColumn tableName="personnel">
+            <column name="current_grade_id" type="BIGINT">
+                <constraints nullable="true"/> <!-- NULL temporairement pour permettre la migration -->
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="personnel" columnName="current_grade_id"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 4: Ajouter les colonnes échelon et indice -->
+    <changeSet id="015-4" author="system">
+        <addColumn tableName="personnel">
+            <!-- Échelon dans le grade (1, 2, 3, etc.) -->
+            <column name="echelon" type="INT">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Indice de rémunération -->
+            <column name="indice" type="INT">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="personnel" columnName="echelon"/>
+            <dropColumn tableName="personnel" columnName="indice"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 5: Ajouter les contraintes de clés étrangères pour les origines géographiques -->
+    <changeSet id="015-5" author="system">
+        <!-- FK vers regions (origine) -->
+        <addForeignKeyConstraint
+                baseTableName="personnel"
+                baseColumnNames="region_origine_id"
+                constraintName="fk_personnel_region_origine"
+                referencedTableName="regions"
+                referencedColumnNames="id"
+                onDelete="RESTRICT"
+                onUpdate="CASCADE"/>
+
+        <!-- FK vers departments (origine) -->
+        <addForeignKeyConstraint
+                baseTableName="personnel"
+                baseColumnNames="department_origine_id"
+                constraintName="fk_personnel_department_origine"
+                referencedTableName="departments"
+                referencedColumnNames="id"
+                onDelete="RESTRICT"
+                onUpdate="CASCADE"/>
+
+        <!-- FK vers arrondissements (origine) -->
+        <addForeignKeyConstraint
+                baseTableName="personnel"
+                baseColumnNames="arrondissement_origine_id"
+                constraintName="fk_personnel_arrondissement_origine"
+                referencedTableName="arrondissements"
+                referencedColumnNames="id"
+                onDelete="RESTRICT"
+                onUpdate="CASCADE"/>
+
+        <rollback>
+            <dropForeignKeyConstraint baseTableName="personnel" constraintName="fk_personnel_region_origine"/>
+            <dropForeignKeyConstraint baseTableName="personnel" constraintName="fk_personnel_department_origine"/>
+            <dropForeignKeyConstraint baseTableName="personnel" constraintName="fk_personnel_arrondissement_origine"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 6: Ajouter la contrainte de clé étrangère pour current_grade_id -->
+    <changeSet id="015-6" author="system">
+        <addForeignKeyConstraint
+                baseTableName="personnel"
+                baseColumnNames="current_grade_id"
+                constraintName="fk_personnel_current_grade"
+                referencedTableName="grades"
+                referencedColumnNames="id"
+                onDelete="RESTRICT"
+                onUpdate="CASCADE"/>
+
+        <rollback>
+            <dropForeignKeyConstraint baseTableName="personnel" constraintName="fk_personnel_current_grade"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 7: Ajouter les index pour les performances -->
+    <changeSet id="015-7" author="system">
+        <!-- Index sur region_origine_id -->
+        <createIndex indexName="idx_personnel_region_origine" tableName="personnel">
+            <column name="region_origine_id"/>
+        </createIndex>
+
+        <!-- Index sur department_origine_id -->
+        <createIndex indexName="idx_personnel_department_origine" tableName="personnel">
+            <column name="department_origine_id"/>
+        </createIndex>
+
+        <!-- Index sur arrondissement_origine_id -->
+        <createIndex indexName="idx_personnel_arrondissement_origine" tableName="personnel">
+            <column name="arrondissement_origine_id"/>
+        </createIndex>
+
+        <!-- Index sur current_grade_id -->
+        <createIndex indexName="idx_personnel_current_grade" tableName="personnel">
+            <column name="current_grade_id"/>
+        </createIndex>
+
+        <!-- Index composé (last_name, first_name) pour recherches -->
+        <createIndex indexName="idx_personnel_full_name" tableName="personnel">
+            <column name="last_name"/>
+            <column name="first_name"/>
+        </createIndex>
+
+        <!-- Index sur échelon -->
+        <createIndex indexName="idx_personnel_echelon" tableName="personnel">
+            <column name="echelon"/>
+        </createIndex>
+
+        <rollback>
+            <dropIndex indexName="idx_personnel_region_origine" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_department_origine" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_arrondissement_origine" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_current_grade" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_full_name" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_echelon" tableName="personnel"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 8: Supprimer les anciennes colonnes String (grade, corps, category) -->
+    <changeSet id="015-8" author="system">
+        <!-- Ces colonnes sont maintenant remplacées par current_grade_id -->
+        <!-- grade → currentGrade (entité)
+             corps → currentGrade.corpsMetier (déduit)
+             category → currentGrade.category (déduit) -->
+
+        <dropColumn tableName="personnel" columnName="grade"/>
+        <dropColumn tableName="personnel" columnName="corps"/>
+        <dropColumn tableName="personnel" columnName="category"/>
+
+        <rollback>
+            <addColumn tableName="personnel">
+                <column name="grade" type="VARCHAR(100)"/>
+                <column name="corps" type="VARCHAR(100)"/>
+                <column name="category" type="VARCHAR(10)"/>
+            </addColumn>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 9: Ajouter une contrainte CHECK pour l'échelon -->
+    <changeSet id="015-9" author="system" dbms="postgresql,mysql,h2">
+        <sql>
+            ALTER TABLE personnel ADD CONSTRAINT chk_personnel_echelon
+            CHECK (echelon IS NULL OR echelon > 0);
+        </sql>
+
+        <rollback>
+            <sql>
+                ALTER TABLE personnel DROP CONSTRAINT IF EXISTS chk_personnel_echelon;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 10: Ajouter une contrainte CHECK pour l'indice -->
+    <changeSet id="015-10" author="system" dbms="postgresql,mysql,h2">
+        <sql>
+            ALTER TABLE personnel ADD CONSTRAINT chk_personnel_indice
+            CHECK (indice IS NULL OR indice > 0);
+        </sql>
+
+        <rollback>
+            <sql>
+                ALTER TABLE personnel DROP CONSTRAINT IF EXISTS chk_personnel_indice;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 11: Rendre obligatoires certains champs après migration des données -->
+    <changeSet id="015-11" author="system">
+        <comment>
+            IMPORTANT: Ce changeset doit être exécuté APRÈS avoir migré les données existantes.
+            Il rend obligatoires les colonnes region_origine_id, department_origine_id, et current_grade_id.
+
+            Avant d'exécuter, assurez-vous que toutes les lignes existantes ont ces valeurs renseignées.
+        </comment>
+
+        <!-- Rendre place_of_birth obligatoire si ce n'était pas le cas -->
+        <addNotNullConstraint tableName="personnel" columnName="place_of_birth" columnDataType="VARCHAR(200)"/>
+
+        <!-- Rendre marital_status obligatoire si ce n'était pas le cas -->
+        <addNotNullConstraint tableName="personnel" columnName="marital_status" columnDataType="VARCHAR(50)"/>
+
+        <!-- NOTE: Les contraintes NOT NULL pour region_origine_id, department_origine_id et current_grade_id
+             seront ajoutées dans un changeset ultérieur, après migration des données. -->
+
+        <rollback>
+            <dropNotNullConstraint tableName="personnel" columnName="place_of_birth" columnDataType="VARCHAR(200)"/>
+            <dropNotNullConstraint tableName="personnel" columnName="marital_status" columnDataType="VARCHAR(50)"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 12: Commentaires sur les nouvelles colonnes -->
+    <changeSet id="015-12" author="system" dbms="postgresql">
+        <sql>
+            COMMENT ON COLUMN personnel.region_origine_id IS 'Région d''origine du personnel (région de naissance/d''attache)';
+            COMMENT ON COLUMN personnel.department_origine_id IS 'Département d''origine du personnel';
+            COMMENT ON COLUMN personnel.arrondissement_origine_id IS 'Arrondissement d''origine du personnel (optionnel)';
+            COMMENT ON COLUMN personnel.current_grade_id IS 'Grade actuel du personnel (FK vers grades)';
+            COMMENT ON COLUMN personnel.echelon IS 'Échelon dans le grade actuel (1, 2, 3, etc.)';
+            COMMENT ON COLUMN personnel.indice IS 'Indice de rémunération';
+            COMMENT ON COLUMN personnel.region_residence IS 'Région de résidence actuelle (distinct de la région d''origine)';
+        </sql>
+
+        <rollback>
+            <sql>
+                COMMENT ON COLUMN personnel.region_origine_id IS NULL;
+                COMMENT ON COLUMN personnel.department_origine_id IS NULL;
+                COMMENT ON COLUMN personnel.arrondissement_origine_id IS NULL;
+                COMMENT ON COLUMN personnel.current_grade_id IS NULL;
+                COMMENT ON COLUMN personnel.echelon IS NULL;
+                COMMENT ON COLUMN personnel.indice IS NULL;
+                COMMENT ON COLUMN personnel.region_residence IS NULL;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 13: Script de migration des données (exemple) -->
+    <changeSet id="015-13" author="system" context="data-migration">
+        <comment>
+            Ce changeset est un exemple de script pour migrer les données existantes.
+            Il doit être adapté selon vos besoins spécifiques.
+
+            Exemple: Si vous aviez un champ "grade" en String comme "ADM-CIV",
+            vous devez trouver le grade correspondant dans la table grades
+            et mettre à jour current_grade_id.
+        </comment>
+
+        <sql>
+            -- Exemple: Mettre à jour current_grade_id pour les personnels ayant grade='ADM-CIV'
+            -- UPDATE personnel p
+            -- SET current_grade_id = (SELECT id FROM grades WHERE code = 'ADM-CIV' LIMIT 1)
+            -- WHERE p.grade = 'ADM-CIV' AND p.current_grade_id IS NULL;
+
+            -- Vous devez créer des scripts similaires pour tous les grades existants
+            -- et pour les origines géographiques
+        </sql>
+
+        <rollback>
+            <!-- Pas de rollback pour la migration de données -->
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

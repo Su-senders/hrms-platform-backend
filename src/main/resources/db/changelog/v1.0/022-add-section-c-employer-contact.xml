@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <!--
+        Migration 022: Section C.4 - Employeur : Coordonnées Professionnelles
+        - Ajout des informations de contact professionnel
+        - Ajout du lieu d'affectation précis
+    -->
+
+    <!-- Changeset 1: Ajouter les champs de coordonnées professionnelles -->
+    <changeSet id="022-1" author="system">
+        <comment>
+            Ajouter les informations de localisation et contact professionnel
+        </comment>
+
+        <addColumn tableName="personnel">
+            <!-- Lieu d'affectation précis -->
+            <column name="work_location" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Ville du bureau -->
+            <column name="work_city" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Téléphone de bureau -->
+            <column name="office_phone" type="VARCHAR(20)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Fax de bureau -->
+            <column name="office_fax" type="VARCHAR(20)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Email professionnel -->
+            <column name="professional_email" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="personnel" columnName="work_location"/>
+            <dropColumn tableName="personnel" columnName="work_city"/>
+            <dropColumn tableName="personnel" columnName="office_phone"/>
+            <dropColumn tableName="personnel" columnName="office_fax"/>
+            <dropColumn tableName="personnel" columnName="professional_email"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 2: Ajouter des index pour les recherches -->
+    <changeSet id="022-2" author="system">
+        <comment>
+            Ajouter des index pour améliorer les performances de recherche
+        </comment>
+
+        <!-- Index sur work_city -->
+        <createIndex indexName="idx_personnel_work_city" tableName="personnel">
+            <column name="work_city"/>
+        </createIndex>
+
+        <!-- Index sur professional_email -->
+        <createIndex indexName="idx_personnel_professional_email" tableName="personnel">
+            <column name="professional_email"/>
+        </createIndex>
+
+        <rollback>
+            <dropIndex indexName="idx_personnel_work_city" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_professional_email" tableName="personnel"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 3: Contrainte UNIQUE sur professional_email -->
+    <changeSet id="022-3" author="system">
+        <comment>
+            S'assurer que l'email professionnel est unique (si renseigné)
+        </comment>
+
+        <addUniqueConstraint
+                tableName="personnel"
+                columnNames="professional_email"
+                constraintName="uk_personnel_professional_email"/>
+
+        <rollback>
+            <dropUniqueConstraint
+                    tableName="personnel"
+                    constraintName="uk_personnel_professional_email"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 4: Commentaires sur les colonnes (PostgreSQL) -->
+    <changeSet id="022-4" author="system" dbms="postgresql">
+        <sql>
+            COMMENT ON COLUMN personnel.work_location IS 'Lieu d''affectation précis (ex: Bureau 205, Bâtiment A)';
+            COMMENT ON COLUMN personnel.work_city IS 'Ville du lieu de travail/bureau';
+            COMMENT ON COLUMN personnel.office_phone IS 'Téléphone de bureau (ligne directe)';
+            COMMENT ON COLUMN personnel.office_fax IS 'Numéro de fax du bureau';
+            COMMENT ON COLUMN personnel.professional_email IS 'Email professionnel (fourni par l''administration)';
+        </sql>
+
+        <rollback>
+            <sql>
+                COMMENT ON COLUMN personnel.work_location IS NULL;
+                COMMENT ON COLUMN personnel.work_city IS NULL;
+                COMMENT ON COLUMN personnel.office_phone IS NULL;
+                COMMENT ON COLUMN personnel.office_fax IS NULL;
+                COMMENT ON COLUMN personnel.professional_email IS NULL;
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

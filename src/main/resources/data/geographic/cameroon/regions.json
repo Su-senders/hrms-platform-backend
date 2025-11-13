@@ -1,0 +1,143 @@
+{
+  "regions": [
+    {
+      "code": "GOUV-AD",
+      "name": "Gouvernorat de la Région de l'Adamaoua",
+      "region": "Adamaoua",
+      "chefLieu": "Ngaoundéré",
+      "departments": [
+        {"name": "Djérem", "chefLieu": "Tibati"},
+        {"name": "Faro-et-Déo", "chefLieu": "Tignère"},
+        {"name": "Mayo-Banyo", "chefLieu": "Banyo"},
+        {"name": "Mbéré", "chefLieu": "Meiganga"},
+        {"name": "Vina", "chefLieu": "Ngaoundéré"}
+      ]
+    },
+    {
+      "code": "GOUV-CE",
+      "name": "Gouvernorat de la Région du Centre",
+      "region": "Centre",
+      "chefLieu": "Yaoundé",
+      "departments": [
+        {"name": "Haute-Sanaga", "chefLieu": "Nanga-Eboko"},
+        {"name": "Lekié", "chefLieu": "Monatélé"},
+        {"name": "Mbam-et-Inoubou", "chefLieu": "Bafia"},
+        {"name": "Mbam-et-Kim", "chefLieu": "Ntui"},
+        {"name": "Méfou-et-Afamba", "chefLieu": "Mfou"},
+        {"name": "Méfou-et-Akono", "chefLieu": "Ngoumou"},
+        {"name": "Mfoundi", "chefLieu": "Yaoundé"},
+        {"name": "Nyong-et-Kéllé", "chefLieu": "Eséka"},
+        {"name": "Nyong-et-Mfoumou", "chefLieu": "Akonolinga"},
+        {"name": "Nyong-et-So'o", "chefLieu": "Mbalmayo"}
+      ]
+    },
+    {
+      "code": "GOUV-ES",
+      "name": "Gouvernorat de la Région de l'Est",
+      "region": "Est",
+      "chefLieu": "Bertoua",
+      "departments": [
+        {"name": "Boumba-et-Ngoko", "chefLieu": "Yokadouma"},
+        {"name": "Haut-Nyong", "chefLieu": "Abong-Mbang"},
+        {"name": "Kadey", "chefLieu": "Batouri"},
+        {"name": "Lom-et-Djérem", "chefLieu": "Bertoua"}
+      ]
+    },
+    {
+      "code": "GOUV-EN",
+      "name": "Gouvernorat de la Région de l'Extrême-Nord",
+      "region": "Extrême-Nord",
+      "chefLieu": "Maroua",
+      "departments": [
+        {"name": "Diamaré", "chefLieu": "Maroua"},
+        {"name": "Logone-et-Chari", "chefLieu": "Kousseri"},
+        {"name": "Mayo-Danay", "chefLieu": "Yagoua"},
+        {"name": "Mayo-Kani", "chefLieu": "Kaélé"},
+        {"name": "Mayo-Sava", "chefLieu": "Mora"},
+        {"name": "Mayo-Tsanaga", "chefLieu": "Mokolo"}
+      ]
+    },
+    {
+      "code": "GOUV-LT",
+      "name": "Gouvernorat de la Région du Littoral",
+      "region": "Littoral",
+      "chefLieu": "Douala",
+      "departments": [
+        {"name": "Moungo", "chefLieu": "Nkongsamba"},
+        {"name": "Nkam", "chefLieu": "Yabassi"},
+        {"name": "Sanaga-Maritime", "chefLieu": "Edéa"},
+        {"name": "Wouri", "chefLieu": "Douala"}
+      ]
+    },
+    {
+      "code": "GOUV-NO",
+      "name": "Gouvernorat de la Région du Nord",
+      "region": "Nord",
+      "chefLieu": "Garoua",
+      "departments": [
+        {"name": "Bénoué", "chefLieu": "Garoua"},
+        {"name": "Faro", "chefLieu": "Poli"},
+        {"name": "Mayo-Louti", "chefLieu": "Guider"},
+        {"name": "Mayo-Rey", "chefLieu": "Tcholliré"}
+      ]
+    },
+    {
+      "code": "GOUV-NW",
+      "name": "Gouvernorat de la Région du Nord-Ouest",
+      "region": "Nord-Ouest",
+      "chefLieu": "Bamenda",
+      "departments": [
+        {"name": "Boyo", "chefLieu": "Fundong"},
+        {"name": "Bui", "chefLieu": "Kumbo"},
+        {"name": "Donga-Mantung", "chefLieu": "Nkambe"},
+        {"name": "Menchum", "chefLieu": "Wum"},
+        {"name": "Mezam", "chefLieu": "Bamenda"},
+        {"name": "Momo", "chefLieu": "Mbengwi"},
+        {"name": "Ngo-Ketunjia", "chefLieu": "Ndop"}
+      ]
+    },
+    {
+      "code": "GOUV-OU",
+      "name": "Gouvernorat de la Région de l'Ouest",
+      "region": "Ouest",
+      "chefLieu": "Bafoussam",
+      "departments": [
+        {"name": "Bamboutos", "chefLieu": "Mbouda"},
+        {"name": "Hauts-Plateaux", "chefLieu": "Baham"},
+        {"name": "Haut-Nkam", "chefLieu": "Bafang"},
+        {"name": "Koung-Khi", "chefLieu": "Bandjoun"},
+        {"name": "Menoua", "chefLieu": "Dschang"},
+        {"name": "Mifi", "chefLieu": "Bafoussam"},
+        {"name": "Ndé", "chefLieu": "Bangangté"},
+        {"name": "Noun", "chefLieu": "Foumban"}
+      ]
+    },
+    {
+      "code": "GOUV-SU",
+      "name": "Gouvernorat de la Région du Sud",
+      "region": "Sud",
+      "chefLieu": "Ebolowa",
+      "departments": [
+        {"name": "Dja-et-Lobo", "chefLieu": "Sangmélima"},
+        {"name": "Mvila", "chefLieu": "Ebolowa"},
+        {"name": "Océan", "chefLieu": "Kribi"},
+        {"name": "Vallée-du-Ntem", "chefLieu": "Ambam"}
+      ]
+    },
+    {
+      "code": "GOUV-SW",
+      "name": "Gouvernorat de la Région du Sud-Ouest",
+      "region": "Sud-Ouest",
+      "chefLieu": "Buea",
+      "departments": [
+        {"name": "Fako", "chefLieu": "Limbé"},
+        {"name": "Koupé-Manengouba", "chefLieu": "Bangem"},
+        {"name": "Lebialem", "chefLieu": "Menji"},
+        {"name": "Manyu", "chefLieu": "Mamfé"},
+        {"name": "Meme", "chefLieu": "Kumba"},
+        {"name": "Ndian", "chefLieu": "Mundemba"}
+      ]
+    }
+  ]
+}
+

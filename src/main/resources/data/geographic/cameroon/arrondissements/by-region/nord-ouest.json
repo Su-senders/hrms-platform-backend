@@ -1,0 +1,51 @@
+{
+  "Boyo": [
+    {"name": "Fundong", "chefLieu": "Fundong"},
+    {"name": "Belo", "chefLieu": "Belo"},
+    {"name": "Furu-Awa", "chefLieu": "Furu-Awa"},
+    {"name": "Njinikom", "chefLieu": "Njinikom"}
+  ],
+  "Bui": [
+    {"name": "Kumbo", "chefLieu": "Kumbo"},
+    {"name": "Jakiri", "chefLieu": "Jakiri"},
+    {"name": "Mbiame", "chefLieu": "Mbiame"},
+    {"name": "Nkum", "chefLieu": "Nkum"}
+  ],
+  "Donga-Mantung": [
+    {"name": "Nkambe", "chefLieu": "Nkambe"},
+    {"name": "Ako", "chefLieu": "Ako"},
+    {"name": "Messi", "chefLieu": "Messi"},
+    {"name": "Ndu", "chefLieu": "Ndu"},
+    {"name": "Nwa", "chefLieu": "Nwa"}
+  ],
+  "Menchum": [
+    {"name": "Wum", "chefLieu": "Wum"},
+    {"name": "Furu-Awa", "chefLieu": "Furu-Awa"},
+    {"name": "Menji", "chefLieu": "Menji"},
+    {"name": "Zhoa", "chefLieu": "Zhoa"}
+  ],
+  "Mezam": [
+    {"name": "Bamenda 1er", "chefLieu": "Bamenda"},
+    {"name": "Bamenda 2e", "chefLieu": "Bamenda"},
+    {"name": "Bamenda 3e", "chefLieu": "Bamenda"},
+    {"name": "Bali", "chefLieu": "Bali"},
+    {"name": "Bafut", "chefLieu": "Bafut"},
+    {"name": "Mbengwi", "chefLieu": "Mbengwi"},
+    {"name": "Santa", "chefLieu": "Santa"},
+    {"name": "Tubah", "chefLieu": "Tubah"}
+  ],
+  "Momo": [
+    {"name": "Mbengwi", "chefLieu": "Mbengwi"},
+    {"name": "Andek", "chefLieu": "Andek"},
+    {"name": "Batibo", "chefLieu": "Batibo"},
+    {"name": "Njikwa", "chefLieu": "Njikwa"},
+    {"name": "Widikum", "chefLieu": "Widikum"}
+  ],
+  "Ngo-Ketunjia": [
+    {"name": "Ndop", "chefLieu": "Ndop"},
+    {"name": "Babessi", "chefLieu": "Babessi"},
+    {"name": "Balikumbat", "chefLieu": "Balikumbat"},
+    {"name": "Ngoketunjia", "chefLieu": "Ngoketunjia"}
+  ]
+}
+

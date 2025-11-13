@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <!--
+        Migration 017: Section A - Identification du Personnel
+        - Ajout des champs de nationalité (type et date de naturalisation)
+        - Ajout du village et de la tribu d'origine
+        - Ajout de la filiation (nom du père et de la mère)
+    -->
+
+    <!-- Changeset 1: Ajouter les champs de nationalité -->
+    <changeSet id="017-1" author="system">
+        <comment>
+            Ajouter le type de nationalité (origine ou naturalisation)
+            et la date de naturalisation si applicable
+        </comment>
+
+        <addColumn tableName="personnel">
+            <!-- Type de nationalité -->
+            <column name="nationality_type" type="VARCHAR(20)" defaultValue="ORIGINE">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Date de naturalisation (si nationalité par naturalisation) -->
+            <column name="naturalization_date" type="DATE">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="personnel" columnName="nationality_type"/>
+            <dropColumn tableName="personnel" columnName="naturalization_date"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 2: Ajouter les champs village et tribu d'origine -->
+    <changeSet id="017-2" author="system">
+        <comment>
+            Compléter l'unité administrative d'origine avec le village et la tribu
+        </comment>
+
+        <addColumn tableName="personnel">
+            <!-- Village d'origine -->
+            <column name="village_origine" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Tribu d'origine -->
+            <column name="tribu_origine" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="personnel" columnName="village_origine"/>
+            <dropColumn tableName="personnel" columnName="tribu_origine"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 3: Ajouter les champs de filiation (père et mère) -->
+    <changeSet id="017-3" author="system">
+        <comment>
+            Ajouter les informations de filiation (nom du père et de la mère)
+        </comment>
+
+        <addColumn tableName="personnel">
+            <!-- Nom complet du père -->
+            <column name="father_name" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Nom complet de la mère -->
+            <column name="mother_name" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="personnel" columnName="father_name"/>
+            <dropColumn tableName="personnel" columnName="mother_name"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 4: Ajouter des index pour les recherches -->
+    <changeSet id="017-4" author="system">
+        <comment>
+            Ajouter des index pour améliorer les performances de recherche
+        </comment>
+
+        <!-- Index sur nationality_type -->
+        <createIndex indexName="idx_personnel_nationality_type" tableName="personnel">
+            <column name="nationality_type"/>
+        </createIndex>
+
+        <!-- Index sur village_origine -->
+        <createIndex indexName="idx_personnel_village_origine" tableName="personnel">
+            <column name="village_origine"/>
+        </createIndex>
+
+        <!-- Index sur tribu_origine -->
+        <createIndex indexName="idx_personnel_tribu_origine" tableName="personnel">
+            <column name="tribu_origine"/>
+        </createIndex>
+
+        <rollback>
+            <dropIndex indexName="idx_personnel_nationality_type" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_village_origine" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_tribu_origine" tableName="personnel"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 5: Ajouter une contrainte CHECK pour nationality_type -->
+    <changeSet id="017-5" author="system" dbms="postgresql,mysql,h2">
+        <comment>
+            S'assurer que nationality_type ne peut être que ORIGINE ou NATURALISATION
+        </comment>
+
+        <sql>
+            ALTER TABLE personnel ADD CONSTRAINT chk_personnel_nationality_type
+            CHECK (nationality_type IN ('ORIGINE', 'NATURALISATION'));
+        </sql>
+
+        <rollback>
+            <sql>
+                ALTER TABLE personnel DROP CONSTRAINT IF EXISTS chk_personnel_nationality_type;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 6: Contrainte CHECK pour naturalization_date -->
+    <changeSet id="017-6" author="system" dbms="postgresql,mysql,h2">
+        <comment>
+            Si nationality_type = NATURALISATION, alors naturalization_date doit être renseignée
+            Note: Cette contrainte est difficile à implémenter en SQL pur, elle sera validée au niveau application
+        </comment>
+
+        <!-- Pour le moment, juste s'assurer que si naturalization_date est renseignée, elle est cohérente -->
+        <sql>
+            ALTER TABLE personnel ADD CONSTRAINT chk_personnel_naturalization_date
+            CHECK (
+                naturalization_date IS NULL OR
+                (naturalization_date >= date_of_birth AND naturalization_date >= '1960-01-01')
+            );
+        </sql>
+
+        <rollback>
+            <sql>
+                ALTER TABLE personnel DROP CONSTRAINT IF EXISTS chk_personnel_naturalization_date;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 7: Commentaires sur les colonnes (PostgreSQL) -->
+    <changeSet id="017-7" author="system" dbms="postgresql">
+        <sql>
+            COMMENT ON COLUMN personnel.nationality_type IS 'Mode d''acquisition de la nationalité: ORIGINE (né camerounais) ou NATURALISATION (acquise)';
+            COMMENT ON COLUMN personnel.naturalization_date IS 'Date de naturalisation si nationalité acquise par naturalisation';
+            COMMENT ON COLUMN personnel.village_origine IS 'Village d''origine du personnel';
+            COMMENT ON COLUMN personnel.tribu_origine IS 'Tribu d''origine du personnel';
+            COMMENT ON COLUMN personnel.father_name IS 'Nom complet du père';
+            COMMENT ON COLUMN personnel.mother_name IS 'Nom complet de la mère';
+        </sql>
+
+        <rollback>
+            <sql>
+                COMMENT ON COLUMN personnel.nationality_type IS NULL;
+                COMMENT ON COLUMN personnel.naturalization_date IS NULL;
+                COMMENT ON COLUMN personnel.village_origine IS NULL;
+                COMMENT ON COLUMN personnel.tribu_origine IS NULL;
+                COMMENT ON COLUMN personnel.father_name IS NULL;
+                COMMENT ON COLUMN personnel.mother_name IS NULL;
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

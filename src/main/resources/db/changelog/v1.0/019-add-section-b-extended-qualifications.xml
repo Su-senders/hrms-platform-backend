@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <!--
+        Migration 019: Section B - Qualifications Étendues
+        - Stages professionnels
+        - Mise en congés
+        - Postes de travail occupés antérieurement (3 dernières années)
+    -->
+
+    <!-- Changeset 1: Créer la table professional_trainings (Stages professionnels) -->
+    <changeSet id="019-1" author="system">
+        <comment>
+            Créer la table pour les stages professionnels
+        </comment>
+
+        <createTable tableName="professional_trainings">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="personnel_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_professional_training_personnel"
+                             referencedTableName="personnel" referencedColumnNames="id"/>
+            </column>
+
+            <column name="training_field" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="trainer" type="VARCHAR(300)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="start_date" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="end_date" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="duration_days" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="training_location" type="VARCHAR(300)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="description" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="certificate_obtained" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="status" type="VARCHAR(50)" defaultValue="COMPLETED">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="notes" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Audit fields -->
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="created_by" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="updated_by" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="deleted" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="deleted_at" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="deleted_by" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="version" type="BIGINT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Index pour améliorer les performances -->
+        <createIndex indexName="idx_professional_training_personnel" tableName="professional_trainings">
+            <column name="personnel_id"/>
+        </createIndex>
+
+        <createIndex indexName="idx_professional_training_dates" tableName="professional_trainings">
+            <column name="start_date"/>
+            <column name="end_date"/>
+        </createIndex>
+
+        <createIndex indexName="idx_professional_training_status" tableName="professional_trainings">
+            <column name="status"/>
+        </createIndex>
+
+        <rollback>
+            <dropTable tableName="professional_trainings"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 2: Créer la table personnel_leaves (Mise en congés) -->
+    <changeSet id="019-2" author="system">
+        <comment>
+            Créer la table pour les mises en congés
+        </comment>
+
+        <createTable tableName="personnel_leaves">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="personnel_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_personnel_leave_personnel"
+                             referencedTableName="personnel" referencedColumnNames="id"/>
+            </column>
+
+            <column name="leave_reason" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="duration_days" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="effective_date" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="expiry_date" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="decision_number" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="decision_date" type="DATE">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="status" type="VARCHAR(50)" defaultValue="APPROVED">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="notes" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Audit fields -->
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="created_by" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="updated_by" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="deleted" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="deleted_at" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="deleted_by" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="version" type="BIGINT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Index pour améliorer les performances -->
+        <createIndex indexName="idx_personnel_leave_personnel" tableName="personnel_leaves">
+            <column name="personnel_id"/>
+        </createIndex>
+
+        <createIndex indexName="idx_personnel_leave_dates" tableName="personnel_leaves">
+            <column name="effective_date"/>
+            <column name="expiry_date"/>
+        </createIndex>
+
+        <createIndex indexName="idx_personnel_leave_reason" tableName="personnel_leaves">
+            <column name="leave_reason"/>
+        </createIndex>
+
+        <createIndex indexName="idx_personnel_leave_status" tableName="personnel_leaves">
+            <column name="status"/>
+        </createIndex>
+
+        <rollback>
+            <dropTable tableName="personnel_leaves"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 3: Créer la table previous_positions (Postes antérieurs) -->
+    <changeSet id="019-3" author="system">
+        <comment>
+            Créer la table pour les postes de travail occupés antérieurement
+        </comment>
+
+        <createTable tableName="previous_positions">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="personnel_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_previous_position_personnel"
+                             referencedTableName="personnel" referencedColumnNames="id"/>
+            </column>
+
+            <column name="position_title" type="VARCHAR(300)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="structure_id" type="BIGINT">
+                <constraints nullable="true" foreignKeyName="fk_previous_position_structure"
+                             referencedTableName="administrative_structures" referencedColumnNames="id"/>
+            </column>
+
+            <column name="structure_name" type="VARCHAR(300)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="start_date" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="end_date" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="duration_months" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="grade_id" type="BIGINT">
+                <constraints nullable="true" foreignKeyName="fk_previous_position_grade"
+                             referencedTableName="grades" referencedColumnNames="id"/>
+            </column>
+
+            <column name="grade_name" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="responsibilities" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="end_reason" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="end_type" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="notes" type="TEXT">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Audit fields -->
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="created_by" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="updated_by" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="deleted" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="deleted_at" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="deleted_by" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="version" type="BIGINT" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Index pour améliorer les performances -->
+        <createIndex indexName="idx_previous_position_personnel" tableName="previous_positions">
+            <column name="personnel_id"/>
+        </createIndex>
+
+        <createIndex indexName="idx_previous_position_dates" tableName="previous_positions">
+            <column name="start_date"/>
+            <column name="end_date"/>
+        </createIndex>
+
+        <createIndex indexName="idx_previous_position_structure" tableName="previous_positions">
+            <column name="structure_id"/>
+        </createIndex>
+
+        <rollback>
+            <dropTable tableName="previous_positions"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 4: Contraintes CHECK pour les dates -->
+    <changeSet id="019-4" author="system" dbms="postgresql,mysql,h2">
+        <comment>
+            Ajouter des contraintes CHECK pour valider les dates
+        </comment>
+
+        <!-- Professional Training: end_date >= start_date -->
+        <sql>
+            ALTER TABLE professional_trainings ADD CONSTRAINT chk_professional_training_dates
+            CHECK (end_date >= start_date);
+        </sql>
+
+        <!-- Personnel Leave: expiry_date >= effective_date -->
+        <sql>
+            ALTER TABLE personnel_leaves ADD CONSTRAINT chk_personnel_leave_dates
+            CHECK (expiry_date >= effective_date);
+        </sql>
+
+        <!-- Previous Position: end_date >= start_date -->
+        <sql>
+            ALTER TABLE previous_positions ADD CONSTRAINT chk_previous_position_dates
+            CHECK (end_date >= start_date);
+        </sql>
+
+        <rollback>
+            <sql>
+                ALTER TABLE professional_trainings DROP CONSTRAINT IF EXISTS chk_professional_training_dates;
+                ALTER TABLE personnel_leaves DROP CONSTRAINT IF EXISTS chk_personnel_leave_dates;
+                ALTER TABLE previous_positions DROP CONSTRAINT IF EXISTS chk_previous_position_dates;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 5: Contraintes CHECK pour les enums -->
+    <changeSet id="019-5" author="system" dbms="postgresql,mysql,h2">
+        <comment>
+            Ajouter des contraintes CHECK pour valider les valeurs d'enum
+        </comment>
+
+        <!-- Professional Training Status -->
+        <sql>
+            ALTER TABLE professional_trainings ADD CONSTRAINT chk_professional_training_status
+            CHECK (
+                status IS NULL OR
+                status IN ('PLANNED', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED', 'SUSPENDED')
+            );
+        </sql>
+
+        <!-- Personnel Leave Reason -->
+        <sql>
+            ALTER TABLE personnel_leaves ADD CONSTRAINT chk_personnel_leave_reason
+            CHECK (
+                leave_reason IS NULL OR
+                leave_reason IN ('ADMINISTRATIF', 'ANNUEL', 'MALADIE', 'MATERNITE', 'PATERNITE',
+                                 'ACCIDENT', 'FORMATION', 'PERSONNEL', 'SANS_SOLDE', 'AUTRE')
+            );
+        </sql>
+
+        <!-- Personnel Leave Status -->
+        <sql>
+            ALTER TABLE personnel_leaves ADD CONSTRAINT chk_personnel_leave_status
+            CHECK (
+                status IS NULL OR
+                status IN ('REQUESTED', 'APPROVED', 'REJECTED', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED')
+            );
+        </sql>
+
+        <!-- Previous Position End Type -->
+        <sql>
+            ALTER TABLE previous_positions ADD CONSTRAINT chk_previous_position_end_type
+            CHECK (
+                end_type IS NULL OR
+                end_type IN ('MUTATION', 'PROMOTION', 'AFFECTATION', 'RETRAITE', 'DEMISSION',
+                            'REVOCATION', 'FIN_CONTRAT', 'AUTRE')
+            );
+        </sql>
+
+        <rollback>
+            <sql>
+                ALTER TABLE professional_trainings DROP CONSTRAINT IF EXISTS chk_professional_training_status;
+                ALTER TABLE personnel_leaves DROP CONSTRAINT IF EXISTS chk_personnel_leave_reason;
+                ALTER TABLE personnel_leaves DROP CONSTRAINT IF EXISTS chk_personnel_leave_status;
+                ALTER TABLE previous_positions DROP CONSTRAINT IF EXISTS chk_previous_position_end_type;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 6: Commentaires sur les colonnes (PostgreSQL) -->
+    <changeSet id="019-6" author="system" dbms="postgresql">
+        <sql>
+            COMMENT ON TABLE professional_trainings IS 'Stages professionnels et formations du personnel';
+            COMMENT ON TABLE personnel_leaves IS 'Mises en congés du personnel';
+            COMMENT ON TABLE previous_positions IS 'Postes de travail occupés antérieurement (3 dernières années)';
+
+            COMMENT ON COLUMN professional_trainings.training_field IS 'Domaine de formation';
+            COMMENT ON COLUMN professional_trainings.trainer IS 'Formateur ou organisme de formation';
+            COMMENT ON COLUMN professional_trainings.duration_days IS 'Durée en jours (calculée automatiquement)';
+            COMMENT ON COLUMN professional_trainings.training_location IS 'Lieu de formation';
+
+            COMMENT ON COLUMN personnel_leaves.leave_reason IS 'Motif de mise en congé (ADMINISTRATIF, ANNUEL, MALADIE, etc.)';
+            COMMENT ON COLUMN personnel_leaves.duration_days IS 'Durée en jours (calculée automatiquement)';
+            COMMENT ON COLUMN personnel_leaves.effective_date IS 'Date d''effet (début du congé)';
+            COMMENT ON COLUMN personnel_leaves.expiry_date IS 'Date d''expiration (fin du congé)';
+
+            COMMENT ON COLUMN previous_positions.position_title IS 'Intitulé du poste occupé';
+            COMMENT ON COLUMN previous_positions.duration_months IS 'Durée en mois (calculée automatiquement)';
+            COMMENT ON COLUMN previous_positions.end_type IS 'Type de fin d''occupation (MUTATION, PROMOTION, etc.)';
+        </sql>
+
+        <rollback>
+            <sql>
+                COMMENT ON TABLE professional_trainings IS NULL;
+                COMMENT ON TABLE personnel_leaves IS NULL;
+                COMMENT ON TABLE previous_positions IS NULL;
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
+

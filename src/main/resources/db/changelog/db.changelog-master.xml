@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <include file="db/changelog/v1.0/001-create-administrative-structures-table.xml"/>
+    <include file="db/changelog/v1.0/002-create-positions-table.xml"/>
+    <include file="db/changelog/v1.0/003-create-personnel-table.xml"/>
+    <include file="db/changelog/v1.0/004-create-career-movements-table.xml"/>
+    <include file="db/changelog/v1.0/005-create-personnel-documents-table.xml"/>
+    <include file="db/changelog/v1.0/006-create-audit-logs-table.xml"/>
+    <include file="db/changelog/v1.0/007-add-indexes.xml"/>
+    <include file="db/changelog/v1.0/009-create-position-templates-table.xml"/>
+    <include file="db/changelog/v1.0/010-add-city-column-to-structures.xml"/>
+    <include file="db/changelog/v1.0/011-create-geographic-entities.xml"/>
+    <include file="db/changelog/v1.0/012-add-geographic-references-to-structures.xml"/>
+    <include file="db/changelog/v1.0/013-create-organizational-templates.xml"/>
+    <include file="db/changelog/v1.0/014-create-corps-metiers-and-grades.xml"/>
+    <include file="db/changelog/v1.0/015-update-personnel-with-origins-and-grades.xml"/>
+    <include file="db/changelog/v1.0/016-add-eci-support-to-personnel.xml"/>
+    <include file="db/changelog/v1.0/017-add-section-a-identification-fields.xml"/>
+    <include file="db/changelog/v1.0/018-add-section-b-qualifications.xml"/>
+    <include file="db/changelog/v1.0/019-add-section-b-extended-qualifications.xml"/>
+    <include file="db/changelog/v1.0/020-add-section-c-career-recruitment.xml"/>
+    <include file="db/changelog/v1.0/021-add-section-c-current-situation.xml"/>
+    <include file="db/changelog/v1.0/022-add-section-c-employer-contact.xml"/>
+    <include file="db/changelog/v1.0/023-create-training-module-tables.xml"/>
+
+</databaseChangeLog>
+    <include file="db/changelog/v1.0/024-add-pricing-and-cost-fields.xml"/>

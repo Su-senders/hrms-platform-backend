@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="009-create-position-templates-table" author="hrms">
+        <createTable tableName="position_templates">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column name="rank" type="VARCHAR(100)"/>
+            <column name="category" type="VARCHAR(50)"/>
+            <column name="required_grade" type="VARCHAR(100)"/>
+            <column name="required_corps" type="VARCHAR(100)"/>
+            <column name="responsibilities" type="TEXT"/>
+            <column name="required_qualifications" type="TEXT"/>
+            <column name="min_experience_years" type="INT"/>
+            <column name="is_managerial" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="is_nominative" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="applicable_to_structure_type" type="VARCHAR(50)"/>
+            <column name="is_unique_per_structure" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="auto_create" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="active" type="BOOLEAN" defaultValueBoolean="true"/>
+            <column name="deleted" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+            <column name="deleted_by" type="VARCHAR(100)"/>
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="created_date" type="DATE"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column name="updated_date" type="DATE"/>
+            <column name="version" type="INT" defaultValueNumeric="0"/>
+        </createTable>
+
+        <!-- Indexes for position templates -->
+        <createIndex tableName="position_templates" indexName="idx_template_code">
+            <column name="code"/>
+        </createIndex>
+
+        <createIndex tableName="position_templates" indexName="idx_template_type">
+            <column name="applicable_to_structure_type"/>
+        </createIndex>
+
+        <createIndex tableName="position_templates" indexName="idx_template_nominative">
+            <column name="is_nominative"/>
+        </createIndex>
+
+        <createIndex tableName="position_templates" indexName="idx_template_auto">
+            <column name="auto_create"/>
+        </createIndex>
+
+        <createIndex tableName="position_templates" indexName="idx_template_active">
+            <column name="active"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

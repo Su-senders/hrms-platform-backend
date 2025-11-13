@@ -1,0 +1,265 @@
+{
+  "code": "TPL-SPREF",
+  "name": "Template Sous-Préfecture",
+  "appliesTo": "SOUS_PREFECTURE",
+  "description": "Structure organisationnelle standard d'une Sous-Préfecture. Ce template est instancié pour chaque arrondissement du Cameroun.",
+  "version": 1,
+  "subStructures": [
+    {
+      "code": "SPREF-SP",
+      "name": "Secrétariat Particulier",
+      "type": "SERVICE",
+      "description": "Secrétariat Particulier du Sous-Préfet",
+      "level": 2,
+      "positions": [
+        {
+          "code": "SPREF-SP-SECRETAIRE-PARTICULIER",
+          "title": "Secrétaire Particulier",
+          "level": 1,
+          "count": 1,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 3,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "DIRECTION",
+          "description": "Chef du Secrétariat Particulier du Sous-Préfet",
+          "responsibilities": "Gestion du secrétariat particulier, organisation de l'agenda du Sous-Préfet, coordination avec les bureaux"
+        },
+        {
+          "code": "SPREF-SP-SECRETAIRE-ASSISTANT",
+          "title": "Secrétaire / Assistant de Direction",
+          "level": 2,
+          "parentPositionCode": "SPREF-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "B2",
+          "requiredCorps": "Corps des Secrétaires d'Administration",
+          "minimumExperienceYears": 2,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "ADMINISTRATIF",
+          "description": "Assistance de direction au Secrétariat Particulier"
+        },
+        {
+          "code": "SPREF-SP-AGENT-BUREAU",
+          "title": "Agent de Bureau",
+          "level": 3,
+          "parentPositionCode": "SPREF-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "C1",
+          "requiredCorps": "Corps des Agents Administratifs",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Travaux de bureau du Secrétariat Particulier"
+        },
+        {
+          "code": "SPREF-SP-AGENT-COURRIER",
+          "title": "Agent de Courrier et Liaison",
+          "level": 3,
+          "parentPositionCode": "SPREF-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "C1",
+          "requiredCorps": "Corps des Agents Administratifs",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Gestion du courrier et liaison du Secrétariat Particulier"
+        },
+        {
+          "code": "SPREF-SP-CHAUFFEUR",
+          "title": "Chauffeur",
+          "level": 3,
+          "parentPositionCode": "SPREF-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "D1",
+          "requiredCorps": "Personnel de Service",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Conduite du véhicule de service du Sous-Préfet"
+        },
+        {
+          "code": "SPREF-SP-AGENT-COMPTA-MAT",
+          "title": "Agent chargé des Opérations de Comptabilité Matières",
+          "level": 3,
+          "parentPositionCode": "SPREF-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps Techniques",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Gestion de la comptabilité matières de la Sous-Préfecture"
+        }
+      ]
+    },
+    {
+      "code": "SPREF-BAG",
+      "name": "Bureau des Affaires Générales",
+      "type": "BUREAU",
+      "description": "Bureau chargé des affaires générales de la Sous-Préfecture",
+      "level": 2,
+      "positions": [
+        {
+          "code": "SPREF-BAG-CHEF",
+          "title": "Chef du Bureau des Affaires Générales",
+          "level": 2,
+          "count": 1,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 3,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "TECHNIQUE",
+          "description": "Responsable du bureau des affaires générales",
+          "responsibilities": "Coordination des affaires générales, gestion administrative courante, accueil et courrier"
+        },
+        {
+          "code": "SPREF-BAG-CADRE",
+          "title": "Cadre d'Appui",
+          "level": 3,
+          "parentPositionCode": "SPREF-BAG-CHEF",
+          "count": 2,
+          "requiredGrade": "B2",
+          "requiredCorps": "Corps Techniques",
+          "minimumExperienceYears": 1,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Appui technique au bureau des affaires générales"
+        }
+      ]
+    },
+    {
+      "code": "SPREF-BAAJP",
+      "name": "Bureau des Affaires Administratives, Juridiques et Politiques",
+      "type": "BUREAU",
+      "description": "Bureau chargé des affaires administratives, juridiques et politiques",
+      "level": 2,
+      "positions": [
+        {
+          "code": "SPREF-BAAJP-CHEF",
+          "title": "Chef du Bureau des Affaires Administratives, Juridiques et Politiques",
+          "level": 2,
+          "count": 1,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 3,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "TECHNIQUE",
+          "description": "Responsable du bureau des affaires administratives, juridiques et politiques",
+          "responsibilities": "Gestion des dossiers administratifs et juridiques, suivi des questions politiques locales"
+        },
+        {
+          "code": "SPREF-BAAJP-CADRE",
+          "title": "Cadre d'Appui",
+          "level": 3,
+          "parentPositionCode": "SPREF-BAAJP-CHEF",
+          "count": 2,
+          "requiredGrade": "B2",
+          "requiredCorps": "Corps Techniques",
+          "minimumExperienceYears": 1,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Appui technique au bureau des affaires administratives et juridiques"
+        }
+      ]
+    },
+    {
+      "code": "SPREF-BAEFDL",
+      "name": "Bureau des Affaires Économiques, Financières et du Développement Local",
+      "type": "BUREAU",
+      "description": "Bureau chargé des affaires économiques, financières et du développement local",
+      "level": 2,
+      "positions": [
+        {
+          "code": "SPREF-BAEFDL-CHEF",
+          "title": "Chef du Bureau des Affaires Économiques, Financières et du Développement Local",
+          "level": 2,
+          "count": 1,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 3,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "TECHNIQUE",
+          "description": "Responsable du bureau des affaires économiques, financières et du développement local",
+          "responsibilities": "Suivi du développement économique local, gestion financière, coordination des projets de développement"
+        },
+        {
+          "code": "SPREF-BAEFDL-CADRE",
+          "title": "Cadre d'Appui",
+          "level": 3,
+          "parentPositionCode": "SPREF-BAEFDL-CHEF",
+          "count": 2,
+          "requiredGrade": "B2",
+          "requiredCorps": "Corps Techniques",
+          "minimumExperienceYears": 1,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Appui technique au bureau des affaires économiques et du développement"
+        }
+      ]
+    }
+  ],
+  "topLevelPositions": [
+    {
+      "code": "SPREF-SOUS-PREFET",
+      "title": "Sous-Préfet",
+      "level": 0,
+      "count": 1,
+      "requiredGrade": "A2",
+      "requiredCorps": "Corps des Administrateurs Civils",
+      "minimumExperienceYears": 10,
+      "isNominative": true,
+      "isManagerial": true,
+      "category": "DIRECTION",
+      "description": "Représentant du Gouvernement dans l'arrondissement, autorité administrative locale",
+      "responsibilities": "Direction et coordination de l'administration de l'arrondissement, maintien de l'ordre public, supervision des communes",
+      "requiredQualifications": "Diplôme de l'ENA ou équivalent, expérience dans l'administration territoriale"
+    },
+    {
+      "code": "SPREF-ADJOINT",
+      "title": "Adjoint au Sous-Préfet",
+      "level": 1,
+      "parentPositionCode": "SPREF-SOUS-PREFET",
+      "count": 1,
+      "requiredGrade": "A3",
+      "requiredCorps": "Corps des Administrateurs Civils",
+      "minimumExperienceYears": 5,
+      "isNominative": false,
+      "isManagerial": true,
+      "category": "DIRECTION",
+      "description": "Assistant du Sous-Préfet dans la gestion administrative",
+      "responsibilities": "Assistance du Sous-Préfet, suppléance en cas d'absence, coordination de certains bureaux"
+    }
+  ],
+  "metadata": {
+    "totalPositions": 17,
+    "positionsByCategory": {
+      "DIRECTION": 3,
+      "TECHNIQUE": 10,
+      "ADMINISTRATIF": 1,
+      "SUPPORT": 3
+    },
+    "positionsByLevel": {
+      "0": 1,
+      "1": 2,
+      "2": 4,
+      "3": 10
+    },
+    "lastUpdated": "2025-11-10",
+    "changeLog": [
+      {
+        "version": 1,
+        "date": "2025-11-10",
+        "changes": "Création initiale du template Sous-Préfecture avec 4 structures et 17 postes",
+        "positionsAdded": 17
+      }
+    ]
+  }
+}

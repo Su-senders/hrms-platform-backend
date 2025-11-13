@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <!-- Création de la table corps_metiers -->
+    <changeSet id="014-1" author="system">
+        <createTable tableName="corps_metiers">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(1000)"/>
+            <column name="category" type="VARCHAR(50)"/>
+            <column name="ministere" type="VARCHAR(100)"/>
+            <column name="active" type="BOOLEAN" defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Colonnes d'audit héritées de BaseEntity -->
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="created_date" type="DATE"/>
+            <column name="modified_by" type="VARCHAR(100)"/>
+            <column name="modified_date" type="DATE"/>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="corps_metiers"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Index sur code pour recherches rapides -->
+    <changeSet id="014-2" author="system">
+        <createIndex indexName="idx_corps_metiers_code" tableName="corps_metiers">
+            <column name="code"/>
+        </createIndex>
+
+        <rollback>
+            <dropIndex indexName="idx_corps_metiers_code" tableName="corps_metiers"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Index sur category pour filtres -->
+    <changeSet id="014-3" author="system">
+        <createIndex indexName="idx_corps_metiers_category" tableName="corps_metiers">
+            <column name="category"/>
+        </createIndex>
+
+        <rollback>
+            <dropIndex indexName="idx_corps_metiers_category" tableName="corps_metiers"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Création de la table grades -->
+    <changeSet id="014-4" author="system">
+        <createTable tableName="grades">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="level" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(1000)"/>
+            <column name="active" type="BOOLEAN" defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Clé étrangère vers corps_metiers -->
+            <column name="corps_metier_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Colonnes d'audit héritées de BaseEntity -->
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="created_date" type="DATE"/>
+            <column name="modified_by" type="VARCHAR(100)"/>
+            <column name="modified_date" type="DATE"/>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="grades"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Contrainte de clé étrangère grades -> corps_metiers -->
+    <changeSet id="014-5" author="system">
+        <addForeignKeyConstraint
+                baseTableName="grades"
+                baseColumnNames="corps_metier_id"
+                constraintName="fk_grades_corps_metier"
+                referencedTableName="corps_metiers"
+                referencedColumnNames="id"
+                onDelete="CASCADE"
+                onUpdate="CASCADE"/>
+
+        <rollback>
+            <dropForeignKeyConstraint
+                    baseTableName="grades"
+                    constraintName="fk_grades_corps_metier"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Contrainte d'unicité (corps_metier_id, level) -->
+    <changeSet id="014-6" author="system">
+        <addUniqueConstraint
+                tableName="grades"
+                columnNames="corps_metier_id, level"
+                constraintName="uk_grade_corps_level"/>
+
+        <rollback>
+            <dropUniqueConstraint
+                    tableName="grades"
+                    constraintName="uk_grade_corps_level"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Index sur code pour recherches rapides -->
+    <changeSet id="014-7" author="system">
+        <createIndex indexName="idx_grades_code" tableName="grades">
+            <column name="code"/>
+        </createIndex>
+
+        <rollback>
+            <dropIndex indexName="idx_grades_code" tableName="grades"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Index sur category pour filtres -->
+    <changeSet id="014-8" author="system">
+        <createIndex indexName="idx_grades_category" tableName="grades">
+            <column name="category"/>
+        </createIndex>
+
+        <rollback>
+            <dropIndex indexName="idx_grades_category" tableName="grades"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Index sur corps_metier_id et level pour requêtes hiérarchiques -->
+    <changeSet id="014-9" author="system">
+        <createIndex indexName="idx_grades_corps_level" tableName="grades">
+            <column name="corps_metier_id"/>
+            <column name="level"/>
+        </createIndex>
+
+        <rollback>
+            <dropIndex indexName="idx_grades_corps_level" tableName="grades"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Commentaires sur les tables -->
+    <changeSet id="014-10" author="system">
+        <setTableRemarks tableName="corps_metiers" remarks="Corps de métiers de la fonction publique camerounaise"/>
+        <setTableRemarks tableName="grades" remarks="Grades hiérarchisés au sein de chaque corps de métier"/>
+
+        <rollback>
+            <sql>COMMENT ON TABLE corps_metiers IS NULL</sql>
+            <sql>COMMENT ON TABLE grades IS NULL</sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

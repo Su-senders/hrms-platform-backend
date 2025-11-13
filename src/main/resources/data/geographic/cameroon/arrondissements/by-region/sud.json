@@ -1,0 +1,37 @@
+{
+  "Dja-et-Lobo": [
+    {"name": "Sangmélima", "chefLieu": "Sangmélima"},
+    {"name": "Djoum", "chefLieu": "Djoum"},
+    {"name": "Meyomessala", "chefLieu": "Meyomessala"},
+    {"name": "Mvangan", "chefLieu": "Mvangan"},
+    {"name": "Oveng", "chefLieu": "Oveng"},
+    {"name": "Zoétélé", "chefLieu": "Zoétélé"}
+  ],
+  "Mvila": [
+    {"name": "Ebolowa 1er", "chefLieu": "Ebolowa"},
+    {"name": "Ebolowa 2e", "chefLieu": "Ebolowa"},
+    {"name": "Biwong-Bane", "chefLieu": "Biwong-Bane"},
+    {"name": "Biwong-Bulu", "chefLieu": "Biwong-Bulu"},
+    {"name": "Efoulan", "chefLieu": "Efoulan"},
+    {"name": "Mengong", "chefLieu": "Mengong"},
+    {"name": "Mvangan", "chefLieu": "Mvangan"},
+    {"name": "Ngoulemakong", "chefLieu": "Ngoulemakong"}
+  ],
+  "Océan": [
+    {"name": "Kribi 1er", "chefLieu": "Kribi"},
+    {"name": "Kribi 2e", "chefLieu": "Kribi"},
+    {"name": "Bipindi", "chefLieu": "Bipindi"},
+    {"name": "Campo", "chefLieu": "Campo"},
+    {"name": "Lokoundjé", "chefLieu": "Lokoundjé"},
+    {"name": "Lolodorf", "chefLieu": "Lolodorf"},
+    {"name": "Mvengue", "chefLieu": "Mvengue"},
+    {"name": "Niete", "chefLieu": "Niete"}
+  ],
+  "Vallée-du-Ntem": [
+    {"name": "Ambam", "chefLieu": "Ambam"},
+    {"name": "Ma'an", "chefLieu": "Ma'an"},
+    {"name": "Olamze", "chefLieu": "Olamze"},
+    {"name": "Kyé-Ossi", "chefLieu": "Kyé-Ossi"}
+  ]
+}
+

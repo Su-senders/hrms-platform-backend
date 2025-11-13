@@ -1,0 +1,79 @@
+{
+  "Mfoundi": [
+    {"name": "Yaoundé 1er", "chefLieu": "Yaoundé"},
+    {"name": "Yaoundé 2e", "chefLieu": "Yaoundé"},
+    {"name": "Yaoundé 3e", "chefLieu": "Yaoundé"},
+    {"name": "Yaoundé 4e", "chefLieu": "Yaoundé"},
+    {"name": "Yaoundé 5e", "chefLieu": "Yaoundé"},
+    {"name": "Yaoundé 6e", "chefLieu": "Yaoundé"},
+    {"name": "Yaoundé 7e", "chefLieu": "Yaoundé"}
+  ],
+  "Lekié": [
+    {"name": "Monatélé", "chefLieu": "Monatélé"},
+    {"name": "Bibey", "chefLieu": "Bibey"},
+    {"name": "Bot-Makak", "chefLieu": "Bot-Makak"},
+    {"name": "Dibang", "chefLieu": "Dibang"},
+    {"name": "Esse", "chefLieu": "Esse"},
+    {"name": "Evodoula", "chefLieu": "Evodoula"},
+    {"name": "Lobo", "chefLieu": "Lobo"},
+    {"name": "Obala", "chefLieu": "Obala"},
+    {"name": "Okola", "chefLieu": "Okola"},
+    {"name": "Saa", "chefLieu": "Saa"}
+  ],
+  "Mbam-et-Inoubou": [
+    {"name": "Bafia", "chefLieu": "Bafia"},
+    {"name": "Bokito", "chefLieu": "Bokito"},
+    {"name": "Deuk", "chefLieu": "Deuk"},
+    {"name": "Kiiki", "chefLieu": "Kiiki"},
+    {"name": "Kon-Yambetta", "chefLieu": "Kon-Yambetta"},
+    {"name": "Makenene", "chefLieu": "Makenene"},
+    {"name": "Ndikinimeki", "chefLieu": "Ndikinimeki"},
+    {"name": "Ombessa", "chefLieu": "Ombessa"}
+  ],
+  "Haute-Sanaga": [
+    {"name": "Nanga-Eboko", "chefLieu": "Nanga-Eboko"},
+    {"name": "Mbandjock", "chefLieu": "Mbandjock"},
+    {"name": "Minta", "chefLieu": "Minta"},
+    {"name": "Nkoteng", "chefLieu": "Nkoteng"}
+  ],
+  "Mbam-et-Kim": [
+    {"name": "Ntui", "chefLieu": "Ntui"},
+    {"name": "Ngoro", "chefLieu": "Ngoro"},
+    {"name": "Ndjamba", "chefLieu": "Ndjamba"},
+    {"name": "Ngambe-Tikar", "chefLieu": "Ngambe-Tikar"}
+  ],
+  "Méfou-et-Afamba": [
+    {"name": "Mfou", "chefLieu": "Mfou"},
+    {"name": "Afanloum", "chefLieu": "Afanloum"},
+    {"name": "Esse", "chefLieu": "Esse"},
+    {"name": "Nkolafamba", "chefLieu": "Nkolafamba"},
+    {"name": "Soa", "chefLieu": "Soa"}
+  ],
+  "Méfou-et-Akono": [
+    {"name": "Ngoumou", "chefLieu": "Ngoumou"},
+    {"name": "Akono", "chefLieu": "Akono"},
+    {"name": "Bikok", "chefLieu": "Bikok"}
+  ],
+  "Nyong-et-Kéllé": [
+    {"name": "Eséka", "chefLieu": "Eséka"},
+    {"name": "Dibang", "chefLieu": "Dibang"},
+    {"name": "Makak", "chefLieu": "Makak"},
+    {"name": "Matomb", "chefLieu": "Matomb"},
+    {"name": "Ngog-Mapubi", "chefLieu": "Ngog-Mapubi"}
+  ],
+  "Nyong-et-Mfoumou": [
+    {"name": "Akonolinga", "chefLieu": "Akonolinga"},
+    {"name": "Ayos", "chefLieu": "Ayos"},
+    {"name": "Endom", "chefLieu": "Endom"},
+    {"name": "Mengang", "chefLieu": "Mengang"}
+  ],
+  "Nyong-et-So'o": [
+    {"name": "Mbalmayo", "chefLieu": "Mbalmayo"},
+    {"name": "Biwong-Bane", "chefLieu": "Biwong-Bane"},
+    {"name": "Efoulan", "chefLieu": "Efoulan"},
+    {"name": "Ngomedzap", "chefLieu": "Ngomedzap"},
+    {"name": "Nkenglikok", "chefLieu": "Nkenglikok"},
+    {"name": "Nkolmetet", "chefLieu": "Nkolmetet"}
+  ]
+}
+

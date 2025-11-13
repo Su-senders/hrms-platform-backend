@@ -1,0 +1,538 @@
+{
+  "organization": {
+    "code": "MINAT",
+    "name": "Ministère de l'Administration Territoriale",
+    "type": "MINISTERE",
+    "description": "Ministère de l'Administration Territoriale du Cameroun",
+    "structures": [
+      {
+        "code": "MINAT-CABINET",
+        "name": "Cabinet du Ministre",
+        "type": "DIRECTION",
+        "description": "Cabinet du Ministre - 1 Ministre, 4 Secrétaires, 2 Chargés de la Comptabilité, 2 Chauffeurs, 5 Personnel d'appui, 5 Personnel d'escorte",
+        "structures": [
+          {
+            "code": "MINAT-CABINET-SP",
+            "name": "Secrétariat Particulier",
+            "type": "DIRECTION",
+            "description": "Chef de Secrétariat Particulier"
+          }
+        ]
+      },
+      {
+        "code": "MINAT-CT",
+        "name": "Conseillers Techniques",
+        "type": "DIRECTION",
+        "description": "3 Conseillers Techniques",
+        "structures": []
+      },
+      {
+        "code": "MINAT-IG",
+        "name": "Inspection Générale",
+        "type": "DIRECTION",
+        "description": null,
+        "structures": [
+          {
+            "code": "MINAT-IG-IGAT",
+            "name": "IG de l'Administration Territoriale",
+            "type": "DIRECTION",
+            "description": "Inspecteur Général + 3 Inspecteurs"
+          },
+          {
+            "code": "MINAT-IG-IGQE",
+            "name": "IG des Questions Électorales",
+            "type": "DIRECTION",
+            "description": "Inspecteur Général + 3 Inspecteurs"
+          },
+          {
+            "code": "MINAT-IG-IGS",
+            "name": "IG des Services",
+            "type": "DIRECTION",
+            "description": "Inspecteur Général + 3 Inspecteurs"
+          }
+        ]
+      },
+      {
+        "code": "MINAT-SG",
+        "name": "Secrétariat Général",
+        "type": "DIRECTION",
+        "description": "Dirigé par le Secrétaire Général",
+        "structures": [
+          {
+            "code": "MINAT-SG-DAJ",
+            "name": "Division des Affaires Juridiques",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-SG-DAJ-CER",
+                "name": "Cellule des Études et de la Réglementation",
+                "type": "SERVICE",
+                "description": "3 Chargés d'Études Assistants"
+              },
+              {
+                "code": "MINAT-SG-DAJ-CRC",
+                "name": "Cellule des Requêtes et du Contentieux",
+                "type": "SERVICE",
+                "description": "3 Chargés d'Études Assistants"
+              }
+            ]
+          },
+          {
+            "code": "MINAT-SG-DESPC",
+            "name": "Division des Études, Statistiques, Planification et Coopération",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-SG-DESPC-CES",
+                "name": "Cellule des Études et des Statistiques",
+                "type": "SERVICE",
+                "description": "2 Chargés d'Études Assistants"
+              },
+              {
+                "code": "MINAT-SG-DESPC-CPP",
+                "name": "Cellule de la Planification et des Projets",
+                "type": "SERVICE",
+                "description": "2 Chargés d'Études Assistants"
+              },
+              {
+                "code": "MINAT-SG-DESPC-CC",
+                "name": "Cellule de la Coopération",
+                "type": "SERVICE",
+                "description": "2 Chargés d'Études Assistants"
+              }
+            ]
+          },
+          {
+            "code": "MINAT-SG-DSCG",
+            "name": "Division du Suivi et du Contrôle de Gestion",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-SG-DSCG-CS",
+                "name": "Cellule de Suivi",
+                "type": "SERVICE",
+                "description": "2 Chargés d'Études Assistants"
+              },
+              {
+                "code": "MINAT-SG-DSCG-CCG",
+                "name": "Cellule du Contrôle de Gestion",
+                "type": "SERVICE",
+                "description": "3 Chargés d'Études Assistants"
+              }
+            ]
+          },
+          {
+            "code": "MINAT-SG-DSI",
+            "name": "Division des Systèmes d'Information",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-SG-DSI-CED",
+                "name": "Cellule des Études et des Développements",
+                "type": "SERVICE",
+                "description": "3 Chargés d'Études Assistants"
+              },
+              {
+                "code": "MINAT-SG-DSI-CSEM",
+                "name": "Cellule du Suivi de l'Exploitation et de la Maintenance",
+                "type": "SERVICE",
+                "description": "4 Chargés d'Études Assistants"
+              }
+            ]
+          },
+          {
+            "code": "MINAT-SG-DCRP",
+            "name": "Division de la Communication et des Relations Publiques",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-SG-DCRP-CC",
+                "name": "Cellule de Communication",
+                "type": "SERVICE",
+                "description": "2 Chargés d'Études Assistants"
+              },
+              {
+                "code": "MINAT-SG-DCRP-CRP",
+                "name": "Cellule des Relations Publiques",
+                "type": "SERVICE",
+                "description": "2 Chargés d'Études Assistants"
+              }
+            ]
+          },
+          {
+            "code": "MINAT-SG-DTPB",
+            "name": "Division de la Traduction et de la Promotion du Bilinguisme",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-SG-DTPB-CT",
+                "name": "Cellule de Traduction",
+                "type": "SERVICE",
+                "description": "2 Chargés d'Études Assistants"
+              },
+              {
+                "code": "MINAT-SG-DTPB-CPB",
+                "name": "Cellule de la Promotion du Bilinguisme",
+                "type": "SERVICE",
+                "description": "2 Chargés d'Études Assistants"
+              }
+            ]
+          },
+          {
+            "code": "MINAT-SG-SDACL",
+            "name": "Sous-Direction de l'Accueil, du Courrier et de Liaison",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-SG-SDACL-SAO",
+                "name": "Service de l'Accueil et de l'Orientation",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-SG-SDACL-SCL",
+                "name": "Service du Courrier et de Liaison",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-SG-SDACL-SR",
+                "name": "Service de la Relance",
+                "type": "SERVICE",
+                "description": null
+              }
+            ]
+          },
+          {
+            "code": "MINAT-SG-CDA",
+            "name": "Centre de Documentation et des Archives",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-SG-CDA-SD",
+                "name": "Service de la Documentation",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-SG-CDA-SFA",
+                "name": "Service du Fichier et des Archives",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-SG-CDA-BIB",
+                "name": "Bibliothèque",
+                "type": "SERVICE",
+                "description": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "MINAT-DAP",
+        "name": "Direction des Affaires Politiques",
+        "type": "DIRECTION",
+        "description": null,
+        "structures": [
+          {
+            "code": "MINAT-DAP-SDLP",
+            "name": "Sous-Direction des Libertés Publiques",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-DAP-SDLP-SA",
+                "name": "Service des Associations",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DAP-SDLP-SONG",
+                "name": "Service des Organisations Non Gouvernementales",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DAP-SDLP-SJ",
+                "name": "Service des Jeux",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DAP-SDLP-SC",
+                "name": "Service des Cultes",
+                "type": "SERVICE",
+                "description": null
+              }
+            ]
+          },
+          {
+            "code": "MINAT-DAP-SDAAE",
+            "name": "Sous-Direction des Affaires Administratives et Électorales",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-DAP-SDAAE-SAA",
+                "name": "Service des Affaires Administratives",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DAP-SDAAE-SAE",
+                "name": "Service des Affaires Électorales",
+                "type": "SERVICE",
+                "description": null
+              }
+            ]
+          },
+          {
+            "code": "MINAT-DAP-SDES",
+            "name": "Sous-Direction de l'Exploitation et de la Sécurité",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-DAP-SDES-SRS",
+                "name": "Service des Rapports et des Synthèses",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DAP-SDES-SAPG",
+                "name": "Service des Activités Privées de Gardiennage",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DAP-SDES-SAM",
+                "name": "Service des Armes et Munitions",
+                "type": "SERVICE",
+                "description": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "MINAT-DOT",
+        "name": "Direction de l'Organisation du Territoire",
+        "type": "DIRECTION",
+        "description": null,
+        "structures": [
+          {
+            "code": "MINAT-DOT-CC",
+            "name": "Cellule de Coordination",
+            "type": "SERVICE",
+            "description": "5 Chargés d'Études Assistants"
+          },
+          {
+            "code": "MINAT-DOT-CQF",
+            "name": "Cellule des Questions Frontalières",
+            "type": "SERVICE",
+            "description": "4 Chargés d'Études Assistants"
+          },
+          {
+            "code": "MINAT-DOT-SDOA",
+            "name": "Sous-Direction de l'Organisation Administrative",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-DOT-SDOA-SCA",
+                "name": "Service des Circonscriptions Administratives",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DOT-SDOA-SSLUA",
+                "name": "Service du Suivi des Litiges entre Unités Administratives",
+                "type": "SERVICE",
+                "description": null
+              }
+            ]
+          },
+          {
+            "code": "MINAT-DOT-SDCT",
+            "name": "Sous-Direction des Chefferies Traditionnelles",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-DOT-SDCT-SC12",
+                "name": "Service des Chefferies de 1er et 2e degré",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DOT-SDCT-SC3",
+                "name": "Service des Chefferies de 3e degré",
+                "type": "SERVICE",
+                "description": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "MINAT-DPC",
+        "name": "Direction de la Protection Civile",
+        "type": "DIRECTION",
+        "description": null,
+        "structures": [
+          {
+            "code": "MINAT-DPC-CEP",
+            "name": "Cellule des Études et de la Prévention",
+            "type": "SERVICE",
+            "description": "3 Chargés d'Études Assistants"
+          },
+          {
+            "code": "MINAT-DPC-SDCI",
+            "name": "Sous-Direction de la Coordination et des Interventions",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-DPC-SDCI-SC",
+                "name": "Service de la Coordination",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DPC-SDCI-SAI",
+                "name": "Service de l'Assistance et des Interventions",
+                "type": "SERVICE",
+                "description": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "MINAT-DRH",
+        "name": "Direction des Ressources Humaines",
+        "type": "DIRECTION",
+        "description": null,
+        "structures": [
+          {
+            "code": "MINAT-DRH-CGPS",
+            "name": "Cellule de Gestion du Projet SIGIPES",
+            "type": "SERVICE",
+            "description": "2 Chargés d'Études Assistants"
+          },
+          {
+            "code": "MINAT-DRH-SDPSP",
+            "name": "Sous-Direction du Personnel, de la Solde et des Pensions",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-DRH-SDPSP-SP",
+                "name": "Service du Personnel",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DRH-SDPSP-SFS",
+                "name": "Service de la Formation et des Stages",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DRH-SDPSP-SSP",
+                "name": "Service de la Solde et des Pensions",
+                "type": "SERVICE",
+                "description": null
+              }
+            ]
+          },
+          {
+            "code": "MINAT-DRH-SDA",
+            "name": "Sous-Direction de l'Assistance",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-DRH-SDA-SAPSC",
+                "name": "Service de l'Assistance au Personnel des Services Centraux",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DRH-SDA-SAAA",
+                "name": "Service de l'Assistance aux Autorités Administratives",
+                "type": "SERVICE",
+                "description": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "MINAT-DRFM",
+        "name": "Direction des Ressources Financières et Matérielles",
+        "type": "DIRECTION",
+        "description": null,
+        "structures": [
+          {
+            "code": "MINAT-DRFM-SDB",
+            "name": "Sous-Direction du Budget",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-DRFM-SDB-SB",
+                "name": "Service du Budget",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DRFM-SDB-SMP",
+                "name": "Service des Marchés Publics",
+                "type": "SERVICE",
+                "description": null
+              }
+            ]
+          },
+          {
+            "code": "MINAT-DRFM-SDEM",
+            "name": "Sous-Direction de l'Équipement et de la Maintenance",
+            "type": "DIRECTION",
+            "description": null,
+            "structures": [
+              {
+                "code": "MINAT-DRFM-SDEM-SMM",
+                "name": "Service du Matériel et de la Maintenance",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DRFM-SDEM-SI",
+                "name": "Service des Infrastructures",
+                "type": "SERVICE",
+                "description": null
+              },
+              {
+                "code": "MINAT-DRFM-SDEM-SMT",
+                "name": "Service des Moyens de Transport",
+                "type": "SERVICE",
+                "description": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+

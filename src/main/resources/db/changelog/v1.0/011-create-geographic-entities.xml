@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <!-- Créer la table des régions géographiques -->
+    <changeSet id="011-1-create-regions-table" author="hrms">
+        <createTable tableName="regions">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(10)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="chef_lieu" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="superficie_km2" type="DECIMAL(12,2)"/>
+            <column name="population" type="BIGINT"/>
+            <column name="description" type="TEXT"/>
+            <column name="active" type="BOOLEAN" defaultValueBoolean="true"/>
+            <column name="deleted" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+            <column name="deleted_by" type="VARCHAR(100)"/>
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="created_date" type="DATE"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column name="updated_date" type="DATE"/>
+            <column name="version" type="INT" defaultValueNumeric="0"/>
+        </createTable>
+
+        <createIndex tableName="regions" indexName="idx_region_code">
+            <column name="code"/>
+        </createIndex>
+        <createIndex tableName="regions" indexName="idx_region_name">
+            <column name="name"/>
+        </createIndex>
+        <createIndex tableName="regions" indexName="idx_region_active">
+            <column name="active"/>
+        </createIndex>
+    </changeSet>
+
+    <!-- Créer la table des départements géographiques -->
+    <changeSet id="011-2-create-departments-table" author="hrms">
+        <createTable tableName="departments">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(20)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="chef_lieu" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="region_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="superficie_km2" type="DECIMAL(12,2)"/>
+            <column name="population" type="BIGINT"/>
+            <column name="description" type="TEXT"/>
+            <column name="active" type="BOOLEAN" defaultValueBoolean="true"/>
+            <column name="deleted" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+            <column name="deleted_by" type="VARCHAR(100)"/>
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="created_date" type="DATE"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column name="updated_date" type="DATE"/>
+            <column name="version" type="INT" defaultValueNumeric="0"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="departments"
+                baseColumnNames="region_id"
+                constraintName="fk_department_region"
+                referencedTableName="regions"
+                referencedColumnNames="id"
+                onDelete="CASCADE"
+                onUpdate="CASCADE"/>
+
+        <createIndex tableName="departments" indexName="idx_department_code">
+            <column name="code"/>
+        </createIndex>
+        <createIndex tableName="departments" indexName="idx_department_name">
+            <column name="name"/>
+        </createIndex>
+        <createIndex tableName="departments" indexName="idx_department_region">
+            <column name="region_id"/>
+        </createIndex>
+        <createIndex tableName="departments" indexName="idx_department_active">
+            <column name="active"/>
+        </createIndex>
+    </changeSet>
+
+    <!-- Créer la table des arrondissements géographiques -->
+    <changeSet id="011-3-create-arrondissements-table" author="hrms">
+        <createTable tableName="arrondissements">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="VARCHAR(30)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="chef_lieu" type="VARCHAR(100)"/>
+            <column name="department_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(20)" defaultValue="NORMAL"/>
+            <column name="superficie_km2" type="DECIMAL(12,2)"/>
+            <column name="population" type="BIGINT"/>
+            <column name="description" type="TEXT"/>
+            <column name="active" type="BOOLEAN" defaultValueBoolean="true"/>
+            <column name="deleted" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+            <column name="deleted_by" type="VARCHAR(100)"/>
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="created_date" type="DATE"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column name="updated_date" type="DATE"/>
+            <column name="version" type="INT" defaultValueNumeric="0"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="arrondissements"
+                baseColumnNames="department_id"
+                constraintName="fk_arrondissement_department"
+                referencedTableName="departments"
+                referencedColumnNames="id"
+                onDelete="CASCADE"
+                onUpdate="CASCADE"/>
+
+        <createIndex tableName="arrondissements" indexName="idx_arrondissement_code">
+            <column name="code"/>
+        </createIndex>
+        <createIndex tableName="arrondissements" indexName="idx_arrondissement_name">
+            <column name="name"/>
+        </createIndex>
+        <createIndex tableName="arrondissements" indexName="idx_arrondissement_department">
+            <column name="department_id"/>
+        </createIndex>
+        <createIndex tableName="arrondissements" indexName="idx_arrondissement_type">
+            <column name="type"/>
+        </createIndex>
+        <createIndex tableName="arrondissements" indexName="idx_arrondissement_active">
+            <column name="active"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

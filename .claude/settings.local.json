@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for f in /Users/stephanelounga/hrms-platform/backend/src/main/java/com/hrms/entity/*.java)",
+      "Bash(done)",
+      "Bash(for f in /Users/stephanelounga/hrms-platform/backend/src/main/java/com/hrms/service/*.java)",
+      "Bash(for f in /Users/stephanelounga/hrms-platform/backend/src/main/java/com/hrms/controller/*.java)",
+      "Bash(find:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

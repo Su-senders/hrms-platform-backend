@@ -1,0 +1,645 @@
+{
+  "corpsMetiers": [
+    {
+      "code": "ADMIN-GENERALE",
+      "name": "Administration Générale",
+      "description": "Corps de métier de l'administration générale regroupant les administrateurs civils et secrétaires d'administration",
+      "category": "ADMINISTRATIF",
+      "ministere": "Tous ministères",
+      "grades": [
+        {
+          "code": "ADM-CIV-PRINC",
+          "name": "Administrateur Civil Principal",
+          "level": 1,
+          "category": "A1",
+          "description": "Grade le plus élevé du corps de l'administration générale"
+        },
+        {
+          "code": "ADM-CIV",
+          "name": "Administrateur Civil",
+          "level": 2,
+          "category": "A2",
+          "description": "Cadre de l'administration générale"
+        },
+        {
+          "code": "SEC-ADM-PRINC",
+          "name": "Secrétaire d'Administration Principal",
+          "level": 3,
+          "category": "B1",
+          "description": "Agent de maîtrise principal de l'administration"
+        },
+        {
+          "code": "SEC-ADM",
+          "name": "Secrétaire d'Administration",
+          "level": 4,
+          "category": "B2",
+          "description": "Agent de maîtrise de l'administration"
+        },
+        {
+          "code": "ADJ-ADM",
+          "name": "Adjoint d'Administration",
+          "level": 5,
+          "category": "C1",
+          "description": "Agent d'exécution principal"
+        },
+        {
+          "code": "COMM-ADM",
+          "name": "Commis d'Administration",
+          "level": 6,
+          "category": "C2",
+          "description": "Agent d'exécution"
+        },
+        {
+          "code": "SECRETAIRE",
+          "name": "Secrétaire",
+          "level": 7,
+          "category": "C1",
+          "description": "Secrétaire de bureau"
+        },
+        {
+          "code": "STENOGRAPHE",
+          "name": "Sténographe",
+          "level": 8,
+          "category": "C2",
+          "description": "Sténographe spécialisé"
+        }
+      ]
+    },
+    {
+      "code": "ADMIN-GREFFES",
+      "name": "Administration des Greffes",
+      "description": "Corps de métier des greffiers et administrateurs de greffe",
+      "category": "JURIDIQUE",
+      "ministere": "MINJUSTICE",
+      "grades": [
+        {
+          "code": "ADM-GREFFE",
+          "name": "Administrateur de Greffe",
+          "level": 1,
+          "category": "A1",
+          "description": "Administrateur de greffe"
+        },
+        {
+          "code": "GREFFIER-PRINC",
+          "name": "Greffier Principal",
+          "level": 2,
+          "category": "A2",
+          "description": "Greffier principal"
+        },
+        {
+          "code": "GREFFIER",
+          "name": "Greffier",
+          "level": 3,
+          "category": "B1",
+          "description": "Greffier"
+        },
+        {
+          "code": "GREFFIER-ADJ",
+          "name": "Greffier Adjoint",
+          "level": 4,
+          "category": "B2",
+          "description": "Greffier adjoint"
+        },
+        {
+          "code": "COMM-GREFFE",
+          "name": "Commis de Greffe",
+          "level": 5,
+          "category": "C1",
+          "description": "Commis de greffe"
+        }
+      ]
+    },
+    {
+      "code": "DIPLOMATIE",
+      "name": "Diplomatie",
+      "description": "Corps de métier des affaires étrangères et de la diplomatie",
+      "category": "DIPLOMATIQUE",
+      "ministere": "MINREX",
+      "grades": [
+        {
+          "code": "MIN-PLENIP",
+          "name": "Ministre Plénipotentiaire",
+          "level": 1,
+          "category": "A1",
+          "description": "Ministre plénipotentiaire"
+        },
+        {
+          "code": "CONS-AFF-ETR",
+          "name": "Conseiller des Affaires Étrangères",
+          "level": 2,
+          "category": "A2",
+          "description": "Conseiller des affaires étrangères"
+        },
+        {
+          "code": "ATT-PRINC-AFF-ETR",
+          "name": "Attaché Principal des Affaires Étrangères",
+          "level": 3,
+          "category": "A3",
+          "description": "Attaché principal des affaires étrangères"
+        },
+        {
+          "code": "SEC-AFF-ETR",
+          "name": "Secrétaire des Affaires Étrangères",
+          "level": 4,
+          "category": "B1",
+          "description": "Secrétaire des affaires étrangères"
+        },
+        {
+          "code": "ATT-AFF-ETR",
+          "name": "Attaché des Affaires Étrangères",
+          "level": 5,
+          "category": "B2",
+          "description": "Attaché des affaires étrangères"
+        }
+      ]
+    },
+    {
+      "code": "DOCUMENTATION",
+      "name": "Documentation",
+      "description": "Corps de métier de la documentation et des archives",
+      "category": "TECHNIQUE",
+      "ministere": "Tous ministères",
+      "grades": [
+        {
+          "code": "INSP-PRINC-DOC",
+          "name": "Inspecteur Principal de la Documentation",
+          "level": 1,
+          "category": "A2",
+          "description": "Inspecteur principal de la documentation"
+        },
+        {
+          "code": "INSP-DOC",
+          "name": "Inspecteur de la Documentation",
+          "level": 2,
+          "category": "A3",
+          "description": "Inspecteur de la documentation"
+        },
+        {
+          "code": "CTRL-PRINC-DOC",
+          "name": "Contrôleur Principal de la Documentation",
+          "level": 3,
+          "category": "B1",
+          "description": "Contrôleur principal de la documentation"
+        },
+        {
+          "code": "CTRL-DOC",
+          "name": "Contrôleur de la Documentation",
+          "level": 4,
+          "category": "B2",
+          "description": "Contrôleur de la documentation"
+        },
+        {
+          "code": "CTRL-ADJ-DOC",
+          "name": "Contrôleur Adjoint de la Documentation",
+          "level": 5,
+          "category": "C1",
+          "description": "Contrôleur adjoint de la documentation"
+        },
+        {
+          "code": "COMM-DOC",
+          "name": "Commis de la Documentation",
+          "level": 6,
+          "category": "C2",
+          "description": "Commis de la documentation"
+        }
+      ]
+    },
+    {
+      "code": "INFORMATICIENS",
+      "name": "Informaticiens",
+      "description": "Corps de métier des informaticiens et ingénieurs systèmes",
+      "category": "TECHNIQUE",
+      "ministere": "Tous ministères",
+      "grades": [
+        {
+          "code": "ING-INFO",
+          "name": "Ingénieur Informaticien",
+          "level": 1,
+          "category": "A1",
+          "description": "Ingénieur informaticien"
+        },
+        {
+          "code": "ING-SYS",
+          "name": "Ingénieur Système",
+          "level": 2,
+          "category": "A2",
+          "description": "Ingénieur système"
+        },
+        {
+          "code": "INFORMATICIEN",
+          "name": "Informaticien",
+          "level": 3,
+          "category": "A3",
+          "description": "Informaticien"
+        },
+        {
+          "code": "ANALYSTE-PRINC",
+          "name": "Analyste Principal",
+          "level": 4,
+          "category": "B1",
+          "description": "Analyste principal"
+        },
+        {
+          "code": "ANALYSTE",
+          "name": "Analyste",
+          "level": 5,
+          "category": "B2",
+          "description": "Analyste"
+        },
+        {
+          "code": "PROGRAMMEUR",
+          "name": "Programmeur",
+          "level": 6,
+          "category": "C1",
+          "description": "Programmeur"
+        },
+        {
+          "code": "OPER-ORD",
+          "name": "Opérateur sur Ordinateur",
+          "level": 7,
+          "category": "C1",
+          "description": "Opérateur sur ordinateur"
+        },
+        {
+          "code": "OPER-TERM",
+          "name": "Opérateur sur Terminal",
+          "level": 8,
+          "category": "C2",
+          "description": "Opérateur sur terminal"
+        },
+        {
+          "code": "PUPITREUR",
+          "name": "Pupitreur",
+          "level": 9,
+          "category": "C2",
+          "description": "Pupitreur"
+        }
+      ]
+    },
+    {
+      "code": "INFORMATION",
+      "name": "Information",
+      "description": "Corps de métier de l'information, de la presse et du cinéma",
+      "category": "COMMUNICATION",
+      "ministere": "MINCOM",
+      "grades": [
+        {
+          "code": "CINEASTE",
+          "name": "Cinéaste",
+          "level": 1,
+          "category": "A2",
+          "description": "Cinéaste"
+        },
+        {
+          "code": "JOURN-PRINC",
+          "name": "Journaliste Principal",
+          "level": 2,
+          "category": "A3",
+          "description": "Journaliste principal"
+        },
+        {
+          "code": "JOURNALISTE",
+          "name": "Journaliste",
+          "level": 3,
+          "category": "B1",
+          "description": "Journaliste"
+        },
+        {
+          "code": "JOURN-ASS-PRINC",
+          "name": "Journaliste-Assistant Principal",
+          "level": 4,
+          "category": "B2",
+          "description": "Journaliste-assistant principal"
+        },
+        {
+          "code": "JOURN-ASS",
+          "name": "Journaliste-Assistant",
+          "level": 5,
+          "category": "B2",
+          "description": "Journaliste-assistant"
+        },
+        {
+          "code": "SEC-PRESSE",
+          "name": "Secrétaire de Presse",
+          "level": 6,
+          "category": "C1",
+          "description": "Secrétaire de presse"
+        },
+        {
+          "code": "COMM-PRESSE",
+          "name": "Commis de Presse",
+          "level": 7,
+          "category": "C2",
+          "description": "Commis de presse"
+        }
+      ]
+    },
+    {
+      "code": "POSTES-TELECOM",
+      "name": "Postes et Télécommunications",
+      "description": "Corps de métier des postes et télécommunications (branches administrative et technique)",
+      "category": "TECHNIQUE",
+      "ministere": "MINPOSTEL",
+      "grades": [
+        {
+          "code": "ADM-GEN-PT",
+          "name": "Administrateur Général des Postes et Télécommunications",
+          "level": 1,
+          "category": "A1",
+          "description": "Administrateur général des postes et télécommunications"
+        },
+        {
+          "code": "ADM-CHEF-PT",
+          "name": "Administrateur en Chef des Postes et Télécommunications",
+          "level": 2,
+          "category": "A1",
+          "description": "Administrateur en chef des postes et télécommunications"
+        },
+        {
+          "code": "ADM-PT",
+          "name": "Administrateur des Postes et Télécommunications",
+          "level": 3,
+          "category": "A2",
+          "description": "Administrateur des postes et télécommunications"
+        },
+        {
+          "code": "INSP-PRINC-PT",
+          "name": "Inspecteur Principal des Postes et Télécommunications",
+          "level": 4,
+          "category": "A3",
+          "description": "Inspecteur principal des postes et télécommunications"
+        },
+        {
+          "code": "INSP-PT",
+          "name": "Inspecteur des Postes et Télécommunications",
+          "level": 5,
+          "category": "B1",
+          "description": "Inspecteur des postes et télécommunications"
+        },
+        {
+          "code": "CTRL-PRINC-PT",
+          "name": "Contrôleur Principal des Postes et Télécommunications",
+          "level": 6,
+          "category": "B2",
+          "description": "Contrôleur principal des postes et télécommunications"
+        },
+        {
+          "code": "CTRL-PT",
+          "name": "Contrôleur des Postes et Télécommunications",
+          "level": 7,
+          "category": "C1",
+          "description": "Contrôleur des postes et télécommunications"
+        },
+        {
+          "code": "AGENT-EXPL-PT",
+          "name": "Agent d'Exploitation des Postes et Télécommunications",
+          "level": 8,
+          "category": "C1",
+          "description": "Agent d'exploitation des postes et télécommunications"
+        },
+        {
+          "code": "COMM-PT",
+          "name": "Commis des Postes et Télécommunications",
+          "level": 9,
+          "category": "C2",
+          "description": "Commis des postes et télécommunications"
+        },
+        {
+          "code": "ING-GEN-TELECOM",
+          "name": "Ingénieur Général des Télécommunications",
+          "level": 10,
+          "category": "A1",
+          "description": "Ingénieur général des télécommunications"
+        },
+        {
+          "code": "ING-CHEF-TELECOM",
+          "name": "Ingénieur en Chef des Télécommunications",
+          "level": 11,
+          "category": "A1",
+          "description": "Ingénieur en chef des télécommunications"
+        },
+        {
+          "code": "ING-TELECOM",
+          "name": "Ingénieur des Télécommunications",
+          "level": 12,
+          "category": "A2",
+          "description": "Ingénieur des télécommunications"
+        },
+        {
+          "code": "ING-PRINC-TRAV-TELECOM",
+          "name": "Ingénieur Principal des Travaux des Télécommunications",
+          "level": 13,
+          "category": "A3",
+          "description": "Ingénieur principal des travaux des télécommunications"
+        },
+        {
+          "code": "ING-TRAV-TELECOM",
+          "name": "Ingénieur des Travaux des Télécommunications",
+          "level": 14,
+          "category": "B1",
+          "description": "Ingénieur des travaux des télécommunications"
+        },
+        {
+          "code": "TECH-PRINC-TELECOM",
+          "name": "Technicien Principal des Télécommunications",
+          "level": 15,
+          "category": "B2",
+          "description": "Technicien principal des télécommunications"
+        },
+        {
+          "code": "TECH-TELECOM",
+          "name": "Technicien des Télécommunications",
+          "level": 16,
+          "category": "C1",
+          "description": "Technicien des télécommunications"
+        },
+        {
+          "code": "AGENT-TECH-TELECOM",
+          "name": "Agent Technique des Télécommunications",
+          "level": 17,
+          "category": "C1",
+          "description": "Agent technique des télécommunications"
+        },
+        {
+          "code": "AGENT-TECH-ADJ-TELECOM",
+          "name": "Agent Technique Adjoint des Télécommunications",
+          "level": 18,
+          "category": "C2",
+          "description": "Agent technique adjoint des télécommunications"
+        }
+      ]
+    },
+    {
+      "code": "REGIES-FINANCIERES",
+      "name": "Régies Financières",
+      "description": "Corps de métier des régies financières (Trésor, Impôts, Douanes)",
+      "category": "FINANCIER",
+      "ministere": "MINFI",
+      "grades": [
+        {
+          "code": "INSP-PRINC-TRESOR",
+          "name": "Inspecteur Principal du Trésor",
+          "level": 1,
+          "category": "A2",
+          "description": "Inspecteur principal du trésor"
+        },
+        {
+          "code": "INSP-TRESOR",
+          "name": "Inspecteur du Trésor",
+          "level": 2,
+          "category": "A3",
+          "description": "Inspecteur du trésor"
+        },
+        {
+          "code": "CTRL-PRINC-TRESOR",
+          "name": "Contrôleur Principal du Trésor",
+          "level": 3,
+          "category": "B1",
+          "description": "Contrôleur principal du trésor"
+        },
+        {
+          "code": "CTRL-TRESOR",
+          "name": "Contrôleur du Trésor",
+          "level": 4,
+          "category": "B2",
+          "description": "Contrôleur du trésor"
+        },
+        {
+          "code": "CTRL-ADJ-TRESOR",
+          "name": "Contrôleur-Adjoint du Trésor",
+          "level": 5,
+          "category": "C1",
+          "description": "Contrôleur-adjoint du trésor"
+        },
+        {
+          "code": "COMM-TRESOR",
+          "name": "Commis du Trésor",
+          "level": 6,
+          "category": "C2",
+          "description": "Commis du trésor"
+        },
+        {
+          "code": "INSP-PRINC-IMPOTS",
+          "name": "Inspecteur Principal des Impôts",
+          "level": 7,
+          "category": "A2",
+          "description": "Inspecteur principal des impôts"
+        },
+        {
+          "code": "INSP-IMPOTS",
+          "name": "Inspecteur des Impôts",
+          "level": 8,
+          "category": "A3",
+          "description": "Inspecteur des impôts"
+        },
+        {
+          "code": "CTRL-PRINC-IMPOTS",
+          "name": "Contrôleur Principal des Impôts",
+          "level": 9,
+          "category": "B1",
+          "description": "Contrôleur principal des impôts"
+        },
+        {
+          "code": "CTRL-IMPOTS",
+          "name": "Contrôleur des Impôts",
+          "level": 10,
+          "category": "B2",
+          "description": "Contrôleur des impôts"
+        },
+        {
+          "code": "CTRL-ADJ-IMPOTS",
+          "name": "Contrôleur-Adjoint des Impôts",
+          "level": 11,
+          "category": "C1",
+          "description": "Contrôleur-adjoint des impôts"
+        },
+        {
+          "code": "COMM-IMPOTS",
+          "name": "Commis des Impôts",
+          "level": 12,
+          "category": "C2",
+          "description": "Commis des impôts"
+        },
+        {
+          "code": "INSP-PRINC-DOUANES",
+          "name": "Inspecteur Principal des Douanes",
+          "level": 13,
+          "category": "A2",
+          "description": "Inspecteur principal des douanes"
+        },
+        {
+          "code": "INSP-DOUANES",
+          "name": "Inspecteur des Douanes",
+          "level": 14,
+          "category": "A3",
+          "description": "Inspecteur des douanes"
+        },
+        {
+          "code": "CTRL-PRINC-DOUANES",
+          "name": "Contrôleur Principal des Douanes",
+          "level": 15,
+          "category": "B1",
+          "description": "Contrôleur principal des douanes"
+        },
+        {
+          "code": "CTRL-DOUANES",
+          "name": "Contrôleur des Douanes",
+          "level": 16,
+          "category": "B2",
+          "description": "Contrôleur des douanes"
+        },
+        {
+          "code": "CTRL-ADJ-DOUANES",
+          "name": "Contrôleur-Adjoint des Douanes",
+          "level": 17,
+          "category": "C1",
+          "description": "Contrôleur-adjoint des douanes"
+        },
+        {
+          "code": "COMM-DOUANES",
+          "name": "Commis des Douanes",
+          "level": 18,
+          "category": "C2",
+          "description": "Commis des douanes"
+        }
+      ]
+    },
+    {
+      "code": "TRAD-INTERP",
+      "name": "Traducteurs-Interprètes",
+      "description": "Corps de métier des traducteurs et interprètes",
+      "category": "LINGUISTIQUE",
+      "ministere": "Tous ministères",
+      "grades": [
+        {
+          "code": "TRAD-INTERP-PRINC",
+          "name": "Traducteur-Interprète Principal",
+          "level": 1,
+          "category": "A2",
+          "description": "Traducteur-interprète principal"
+        },
+        {
+          "code": "TRAD-INTERP",
+          "name": "Traducteur-Interprète",
+          "level": 2,
+          "category": "A3",
+          "description": "Traducteur-interprète"
+        },
+        {
+          "code": "TRAD-PRINC",
+          "name": "Traducteur Principal",
+          "level": 3,
+          "category": "B1",
+          "description": "Traducteur principal"
+        },
+        {
+          "code": "TRADUCTEUR",
+          "name": "Traducteur",
+          "level": 4,
+          "category": "B2",
+          "description": "Traducteur"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,938 @@
+{
+  "code": "TPL-GOUV",
+  "name": "Template Gouvernorat",
+  "appliesTo": "GOUVERNORAT",
+  "description": "Structure organisationnelle standard d'un Gouvernorat. Ce template est instancié pour chacune des 10 régions du Cameroun.",
+  "version": 1,
+  "subStructures": [
+    {
+      "code": "GOUV-SP",
+      "name": "Secrétariat Particulier",
+      "type": "SERVICE",
+      "description": "Secrétariat Particulier du Gouverneur",
+      "level": 2,
+      "positions": [
+        {
+          "code": "GOUV-SP-SECRETAIRE-PARTICULIER",
+          "title": "Secrétaire Particulier",
+          "level": 1,
+          "count": 1,
+          "requiredGrade": "A3",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 5,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "DIRECTION",
+          "description": "Chef du Secrétariat Particulier du Gouverneur",
+          "responsibilities": "Gestion du secrétariat particulier, organisation de l'agenda du Gouverneur, coordination avec les services"
+        },
+        {
+          "code": "GOUV-SP-SECRETAIRE-ASSISTANT",
+          "title": "Secrétaire / Assistant de Direction",
+          "level": 2,
+          "parentPositionCode": "GOUV-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps des Secrétaires d'Administration",
+          "minimumExperienceYears": 3,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "ADMINISTRATIF",
+          "description": "Assistance de direction au Secrétariat Particulier"
+        },
+        {
+          "code": "GOUV-SP-AGENT-BUREAU-LIAISON",
+          "title": "Agent de Bureau et Liaison",
+          "level": 3,
+          "parentPositionCode": "GOUV-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "C1",
+          "requiredCorps": "Corps des Agents Administratifs",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Gestion du courrier et liaison administrative"
+        },
+        {
+          "code": "GOUV-SP-AGENT-BUREAU",
+          "title": "Agent de Bureau",
+          "level": 3,
+          "parentPositionCode": "GOUV-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "C1",
+          "requiredCorps": "Corps des Agents Administratifs",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Travaux administratifs courants"
+        },
+        {
+          "code": "GOUV-SP-CHAUFFEUR",
+          "title": "Chauffeur",
+          "level": 3,
+          "parentPositionCode": "GOUV-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "D1",
+          "requiredCorps": "Personnel de Service",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Conduite et entretien des véhicules de service"
+        }
+      ]
+    },
+    {
+      "code": "GOUV-CABINET",
+      "name": "Cabinet du Gouverneur",
+      "type": "SERVICE",
+      "description": "Cabinet du Gouverneur regroupant les services de communication, protocole et sécurité",
+      "level": 2,
+      "positions": [
+        {
+          "code": "GOUV-CABINET-CHEF",
+          "title": "Chef de Cabinet du Gouverneur",
+          "level": 1,
+          "count": 1,
+          "requiredGrade": "A2",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 10,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "DIRECTION",
+          "description": "Coordination du Cabinet du Gouverneur, supervision des services rattachés",
+          "responsibilities": "Direction du Cabinet, coordination des activités, supervision des services de communication, protocole et sécurité"
+        },
+        {
+          "code": "GOUV-CABINET-SECRETAIRE",
+          "title": "Secrétaire",
+          "level": 2,
+          "parentPositionCode": "GOUV-CABINET-CHEF",
+          "count": 2,
+          "requiredGrade": "B2",
+          "requiredCorps": "Corps des Secrétaires d'Administration",
+          "minimumExperienceYears": 2,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "ADMINISTRATIF",
+          "description": "Travaux de secrétariat du Cabinet"
+        },
+        {
+          "code": "GOUV-CABINET-AGENT-COURRIER",
+          "title": "Agent Courrier et Liaison",
+          "level": 3,
+          "parentPositionCode": "GOUV-CABINET-CHEF",
+          "count": 1,
+          "requiredGrade": "C1",
+          "requiredCorps": "Corps des Agents Administratifs",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Gestion du courrier et des liaisons du Cabinet"
+        },
+        {
+          "code": "GOUV-CABINET-AGENT-BUREAU",
+          "title": "Agent de Bureau",
+          "level": 3,
+          "parentPositionCode": "GOUV-CABINET-CHEF",
+          "count": 1,
+          "requiredGrade": "C1",
+          "requiredCorps": "Corps des Agents Administratifs",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Travaux de bureau du Cabinet"
+        }
+      ],
+      "subServices": [
+        {
+          "code": "GOUV-CABINET-SCOM",
+          "name": "Service de la Communication",
+          "type": "SERVICE",
+          "description": "Service chargé de la communication du Gouvernorat",
+          "level": 3,
+          "positions": [
+            {
+              "code": "GOUV-CABINET-SCOM-CHEF",
+              "title": "Chef de Service de la Communication",
+              "level": 2,
+              "parentPositionCode": "GOUV-CABINET-CHEF",
+              "count": 1,
+              "requiredGrade": "A3",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 5,
+              "isNominative": false,
+              "isManagerial": true,
+              "category": "TECHNIQUE",
+              "description": "Responsable de la communication du Gouvernorat"
+            },
+            {
+              "code": "GOUV-CABINET-SCOM-CADRE",
+              "title": "Cadre d'Appui",
+              "level": 3,
+              "parentPositionCode": "GOUV-CABINET-SCOM-CHEF",
+              "count": 4,
+              "requiredGrade": "B1",
+              "requiredCorps": "Corps Techniques",
+              "minimumExperienceYears": 2,
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Appui technique au service de la communication"
+            }
+          ]
+        },
+        {
+          "code": "GOUV-CABINET-SPROT",
+          "name": "Service du Protocole",
+          "type": "SERVICE",
+          "description": "Service chargé du protocole et des cérémonies",
+          "level": 3,
+          "positions": [
+            {
+              "code": "GOUV-CABINET-SPROT-CHEF",
+              "title": "Chef de Service du Protocole",
+              "level": 2,
+              "parentPositionCode": "GOUV-CABINET-CHEF",
+              "count": 1,
+              "requiredGrade": "A3",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 5,
+              "isNominative": false,
+              "isManagerial": true,
+              "category": "TECHNIQUE",
+              "description": "Responsable du protocole et des cérémonies officielles"
+            },
+            {
+              "code": "GOUV-CABINET-SPROT-CADRE",
+              "title": "Cadre d'Appui",
+              "level": 3,
+              "parentPositionCode": "GOUV-CABINET-SPROT-CHEF",
+              "count": 4,
+              "requiredGrade": "B1",
+              "requiredCorps": "Corps Techniques",
+              "minimumExperienceYears": 2,
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Appui technique au service du protocole"
+            }
+          ]
+        },
+        {
+          "code": "GOUV-CABINET-SSEC",
+          "name": "Service de la Sécurité",
+          "type": "SERVICE",
+          "description": "Service chargé de la sécurité du Gouvernorat",
+          "level": 3,
+          "positions": [
+            {
+              "code": "GOUV-CABINET-SSEC-CHEF",
+              "title": "Chef de Service de la Sécurité",
+              "level": 2,
+              "parentPositionCode": "GOUV-CABINET-CHEF",
+              "count": 1,
+              "requiredGrade": "A3",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 7,
+              "isNominative": false,
+              "isManagerial": true,
+              "category": "TECHNIQUE",
+              "description": "Responsable de la sécurité du Gouvernorat et coordination avec les forces de l'ordre"
+            },
+            {
+              "code": "GOUV-CABINET-SSEC-CADRE",
+              "title": "Cadre d'Appui",
+              "level": 3,
+              "parentPositionCode": "GOUV-CABINET-SSEC-CHEF",
+              "count": 4,
+              "requiredGrade": "B1",
+              "requiredCorps": "Corps Techniques",
+              "minimumExperienceYears": 2,
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Appui technique au service de la sécurité"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "GOUV-IRSR",
+      "name": "Inspection Régionale des Services Régionaux",
+      "type": "SERVICE",
+      "description": "Service d'inspection et de contrôle des services régionaux",
+      "level": 2,
+      "positions": [
+        {
+          "code": "GOUV-IRSR-IG",
+          "title": "Inspecteur Général",
+          "level": 1,
+          "count": 1,
+          "requiredGrade": "A1",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 15,
+          "isNominative": true,
+          "isManagerial": true,
+          "category": "DIRECTION",
+          "description": "Chef de l'Inspection Régionale des Services Régionaux",
+          "responsibilities": "Direction de l'inspection, contrôle des services préfectoraux et services techniques déconcentrés"
+        },
+        {
+          "code": "GOUV-IRSR-IR-SAP",
+          "title": "Inspecteur Régional chargé des Services de l'Administration Préfectorale",
+          "level": 2,
+          "parentPositionCode": "GOUV-IRSR-IG",
+          "count": 1,
+          "requiredGrade": "A2",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 10,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Inspection des préfectures et sous-préfectures de la région"
+        },
+        {
+          "code": "GOUV-IRSR-IR-STD",
+          "title": "Inspecteur Régional chargé des Services Techniques Déconcentrés",
+          "level": 2,
+          "parentPositionCode": "GOUV-IRSR-IG",
+          "count": 1,
+          "requiredGrade": "A2",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 10,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Inspection des services techniques déconcentrés de la région"
+        },
+        {
+          "code": "GOUV-IRSR-SECRETAIRE",
+          "title": "Secrétaire",
+          "level": 3,
+          "parentPositionCode": "GOUV-IRSR-IG",
+          "count": 1,
+          "requiredGrade": "B2",
+          "requiredCorps": "Corps des Secrétaires d'Administration",
+          "minimumExperienceYears": 2,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "ADMINISTRATIF",
+          "description": "Travaux de secrétariat de l'Inspection Régionale"
+        },
+        {
+          "code": "GOUV-IRSR-AGENT-BUREAU",
+          "title": "Agent de Bureau",
+          "level": 3,
+          "parentPositionCode": "GOUV-IRSR-IG",
+          "count": 1,
+          "requiredGrade": "C1",
+          "requiredCorps": "Corps des Agents Administratifs",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Travaux de bureau de l'Inspection Régionale"
+        },
+        {
+          "code": "GOUV-IRSR-AGENT-COURRIER",
+          "title": "Agent de Courrier et Liaison",
+          "level": 3,
+          "parentPositionCode": "GOUV-IRSR-IG",
+          "count": 1,
+          "requiredGrade": "C1",
+          "requiredCorps": "Corps des Agents Administratifs",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Gestion du courrier et liaison de l'Inspection Régionale"
+        }
+      ]
+    },
+    {
+      "code": "GOUV-SGSG",
+      "name": "Secrétariat Général des Services du Gouverneur",
+      "type": "SERVICE",
+      "description": "Secrétariat Général chargé de la coordination des services du Gouvernorat",
+      "level": 2,
+      "positions": [
+        {
+          "code": "GOUV-SGSG-SG",
+          "title": "Secrétaire Général des Services du Gouverneur",
+          "level": 1,
+          "count": 1,
+          "requiredGrade": "A2",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 12,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "DIRECTION",
+          "description": "Coordination générale des services du Gouvernorat",
+          "responsibilities": "Coordination des services, gestion administrative, supervision des activités quotidiennes du Gouvernorat"
+        },
+        {
+          "code": "GOUV-SGSG-SECRETAIRE",
+          "title": "Secrétaire",
+          "level": 2,
+          "parentPositionCode": "GOUV-SGSG-SG",
+          "count": 1,
+          "requiredGrade": "B2",
+          "requiredCorps": "Corps des Secrétaires d'Administration",
+          "minimumExperienceYears": 3,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "ADMINISTRATIF",
+          "description": "Travaux de secrétariat du Secrétariat Général"
+        },
+        {
+          "code": "GOUV-SGSG-AGENT-BUREAU",
+          "title": "Agent de Bureau",
+          "level": 3,
+          "parentPositionCode": "GOUV-SGSG-SG",
+          "count": 1,
+          "requiredGrade": "C1",
+          "requiredCorps": "Corps des Agents Administratifs",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Travaux de bureau du Secrétariat Général"
+        },
+        {
+          "code": "GOUV-SGSG-AGENT-ENTRETIEN",
+          "title": "Agent d'Entretien",
+          "level": 3,
+          "parentPositionCode": "GOUV-SGSG-SG",
+          "count": 1,
+          "requiredGrade": "D1",
+          "requiredCorps": "Personnel de Service",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Entretien et maintenance des locaux"
+        },
+        {
+          "code": "GOUV-SGSG-AGENT-COMPTA-MAT",
+          "title": "Agent chargé des Opérations de Comptabilité Matières",
+          "level": 3,
+          "parentPositionCode": "GOUV-SGSG-SG",
+          "count": 1,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps Techniques",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Gestion de la comptabilité matières du Gouvernorat"
+        }
+      ],
+      "subServices": [
+        {
+          "code": "GOUV-SGSG-SACL",
+          "name": "Service de l'Accueil, du Courrier et de Liaison",
+          "type": "SERVICE",
+          "description": "Service chargé de l'accueil, gestion du courrier et des liaisons",
+          "level": 3,
+          "positions": [
+            {
+              "code": "GOUV-SGSG-SACL-CHEF",
+              "title": "Chef du Service de l'Accueil, du Courrier et de Liaison",
+              "level": 2,
+              "parentPositionCode": "GOUV-SGSG-SG",
+              "count": 1,
+              "requiredGrade": "A3",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 5,
+              "isNominative": false,
+              "isManagerial": true,
+              "category": "TECHNIQUE",
+              "description": "Responsable de l'accueil, du courrier et des liaisons du Gouvernorat"
+            },
+            {
+              "code": "GOUV-SGSG-SACL-CADRE",
+              "title": "Cadre d'Appui",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-SACL-CHEF",
+              "count": 2,
+              "requiredGrade": "B1",
+              "requiredCorps": "Corps Techniques",
+              "minimumExperienceYears": 2,
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Appui technique au service de l'accueil et du courrier"
+            }
+          ]
+        },
+        {
+          "code": "GOUV-SGSG-SDAT",
+          "name": "Service de la Documentation, des Archives et de la Traduction",
+          "type": "SERVICE",
+          "description": "Service chargé de la documentation, archivage et traduction",
+          "level": 3,
+          "positions": [
+            {
+              "code": "GOUV-SGSG-SDAT-CHEF",
+              "title": "Chef du Service de la Documentation, des Archives et de la Traduction",
+              "level": 2,
+              "parentPositionCode": "GOUV-SGSG-SG",
+              "count": 1,
+              "requiredGrade": "A3",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 5,
+              "isNominative": false,
+              "isManagerial": true,
+              "category": "TECHNIQUE",
+              "description": "Responsable de la documentation, des archives et de la traduction"
+            },
+            {
+              "code": "GOUV-SGSG-SDAT-CADRE",
+              "title": "Cadre d'Appui",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-SDAT-CHEF",
+              "count": 2,
+              "requiredGrade": "B1",
+              "requiredCorps": "Corps Techniques",
+              "minimumExperienceYears": 2,
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Appui technique au service de la documentation et des archives"
+            }
+          ]
+        },
+        {
+          "code": "GOUV-SGSG-SAFL",
+          "name": "Service des Affaires Financières et de la Logistique",
+          "type": "SERVICE",
+          "description": "Service chargé de la gestion financière et logistique",
+          "level": 3,
+          "positions": [
+            {
+              "code": "GOUV-SGSG-SAFL-CHEF",
+              "title": "Chef du Service des Affaires Financières et de la Logistique",
+              "level": 2,
+              "parentPositionCode": "GOUV-SGSG-SG",
+              "count": 1,
+              "requiredGrade": "A3",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 5,
+              "isNominative": false,
+              "isManagerial": true,
+              "category": "TECHNIQUE",
+              "description": "Responsable des affaires financières et de la logistique du Gouvernorat"
+            },
+            {
+              "code": "GOUV-SGSG-SAFL-CADRE",
+              "title": "Cadre d'Appui",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-SAFL-CHEF",
+              "count": 2,
+              "requiredGrade": "B1",
+              "requiredCorps": "Corps Techniques",
+              "minimumExperienceYears": 2,
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Appui technique au service des affaires financières et logistique"
+            }
+          ]
+        },
+        {
+          "code": "GOUV-SGSG-DAAJ",
+          "name": "Division des Affaires Administratives et Juridiques",
+          "type": "DIVISION",
+          "description": "Division chargée des affaires administratives et juridiques",
+          "level": 3,
+          "positions": [
+            {
+              "code": "GOUV-SGSG-DAAJ-CHEF",
+              "title": "Chef de la Division des Affaires Administratives et Juridiques",
+              "level": 2,
+              "parentPositionCode": "GOUV-SGSG-SG",
+              "count": 1,
+              "requiredGrade": "A2",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 10,
+              "isNominative": false,
+              "isManagerial": true,
+              "category": "DIRECTION",
+              "description": "Responsable de la division des affaires administratives et juridiques"
+            },
+            {
+              "code": "GOUV-SGSG-DAAJ-SECRETAIRE",
+              "title": "Secrétaire",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DAAJ-CHEF",
+              "count": 1,
+              "requiredGrade": "B2",
+              "requiredCorps": "Corps des Secrétaires d'Administration",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "ADMINISTRATIF",
+              "description": "Secrétariat de la division"
+            },
+            {
+              "code": "GOUV-SGSG-DAAJ-AGENT-BUREAU",
+              "title": "Agent de Bureau",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DAAJ-CHEF",
+              "count": 2,
+              "requiredGrade": "C1",
+              "requiredCorps": "Corps des Agents Administratifs",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "SUPPORT",
+              "description": "Travaux de bureau de la division"
+            },
+            {
+              "code": "GOUV-SGSG-DAAJ-AGENT-COURRIER",
+              "title": "Agent de Courrier et Liaison",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DAAJ-CHEF",
+              "count": 1,
+              "requiredGrade": "C1",
+              "requiredCorps": "Corps des Agents Administratifs",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "SUPPORT",
+              "description": "Gestion du courrier et liaison de la division"
+            },
+            {
+              "code": "GOUV-SGSG-DAAJ-CHARGE-ETUDES",
+              "title": "Chargé d'Études",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DAAJ-CHEF",
+              "count": 2,
+              "requiredGrade": "A3",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 3,
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Études administratives et juridiques"
+            },
+            {
+              "code": "GOUV-SGSG-DAAJ-CADRE",
+              "title": "Cadre d'Appui",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DAAJ-CHEF",
+              "count": 15,
+              "requiredGrade": "B1",
+              "requiredCorps": "Corps Techniques",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Appui technique à la division"
+            }
+          ]
+        },
+        {
+          "code": "GOUV-SGSG-DAESC",
+          "name": "Division des Affaires Économiques, Sociales et Culturelles",
+          "type": "DIVISION",
+          "description": "Division chargée des affaires économiques, sociales et culturelles",
+          "level": 3,
+          "positions": [
+            {
+              "code": "GOUV-SGSG-DAESC-CHEF",
+              "title": "Chef de la Division des Affaires Économiques, Sociales et Culturelles",
+              "level": 2,
+              "parentPositionCode": "GOUV-SGSG-SG",
+              "count": 1,
+              "requiredGrade": "A2",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 10,
+              "isNominative": false,
+              "isManagerial": true,
+              "category": "DIRECTION",
+              "description": "Responsable de la division des affaires économiques, sociales et culturelles"
+            },
+            {
+              "code": "GOUV-SGSG-DAESC-SECRETAIRE",
+              "title": "Secrétaire",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DAESC-CHEF",
+              "count": 1,
+              "requiredGrade": "B2",
+              "requiredCorps": "Corps des Secrétaires d'Administration",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "ADMINISTRATIF",
+              "description": "Secrétariat de la division"
+            },
+            {
+              "code": "GOUV-SGSG-DAESC-AGENT-BUREAU",
+              "title": "Agent de Bureau",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DAESC-CHEF",
+              "count": 2,
+              "requiredGrade": "C1",
+              "requiredCorps": "Corps des Agents Administratifs",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "SUPPORT",
+              "description": "Travaux de bureau de la division"
+            },
+            {
+              "code": "GOUV-SGSG-DAESC-AGENT-COURRIER",
+              "title": "Agent de Courrier et Liaison",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DAESC-CHEF",
+              "count": 1,
+              "requiredGrade": "C1",
+              "requiredCorps": "Corps des Agents Administratifs",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "SUPPORT",
+              "description": "Gestion du courrier et liaison de la division"
+            },
+            {
+              "code": "GOUV-SGSG-DAESC-CHARGE-ETUDES",
+              "title": "Chargé d'Études",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DAESC-CHEF",
+              "count": 3,
+              "requiredGrade": "A3",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 3,
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Études économiques, sociales et culturelles"
+            },
+            {
+              "code": "GOUV-SGSG-DAESC-CADRE",
+              "title": "Cadre d'Appui",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DAESC-CHEF",
+              "count": 5,
+              "requiredGrade": "B1",
+              "requiredCorps": "Corps Techniques",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Appui technique à la division"
+            }
+          ]
+        },
+        {
+          "code": "GOUV-SGSG-DPOA",
+          "name": "Division de la Police et de l'Organisation Administrative",
+          "type": "DIVISION",
+          "description": "Division chargée de la police administrative et de l'organisation",
+          "level": 3,
+          "positions": [
+            {
+              "code": "GOUV-SGSG-DPOA-CHEF",
+              "title": "Chef de la Division de la Police et de l'Organisation Administrative",
+              "level": 2,
+              "parentPositionCode": "GOUV-SGSG-SG",
+              "count": 1,
+              "requiredGrade": "A2",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 10,
+              "isNominative": false,
+              "isManagerial": true,
+              "category": "DIRECTION",
+              "description": "Responsable de la division de la police et de l'organisation administrative"
+            },
+            {
+              "code": "GOUV-SGSG-DPOA-SECRETAIRE",
+              "title": "Secrétaire",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DPOA-CHEF",
+              "count": 1,
+              "requiredGrade": "B2",
+              "requiredCorps": "Corps des Secrétaires d'Administration",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "ADMINISTRATIF",
+              "description": "Secrétariat de la division"
+            },
+            {
+              "code": "GOUV-SGSG-DPOA-AGENT-BUREAU",
+              "title": "Agent de Bureau",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DPOA-CHEF",
+              "count": 2,
+              "requiredGrade": "C1",
+              "requiredCorps": "Corps des Agents Administratifs",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "SUPPORT",
+              "description": "Travaux de bureau de la division"
+            },
+            {
+              "code": "GOUV-SGSG-DPOA-AGENT-COURRIER",
+              "title": "Agent de Courrier et Liaison",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DPOA-CHEF",
+              "count": 1,
+              "requiredGrade": "C1",
+              "requiredCorps": "Corps des Agents Administratifs",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "SUPPORT",
+              "description": "Gestion du courrier et liaison de la division"
+            },
+            {
+              "code": "GOUV-SGSG-DPOA-CHARGE-ETUDES",
+              "title": "Chargé d'Études",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DPOA-CHEF",
+              "count": 3,
+              "requiredGrade": "A3",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 3,
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Études en matière de police administrative et organisation"
+            },
+            {
+              "code": "GOUV-SGSG-DPOA-CADRE",
+              "title": "Cadre d'Appui",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DPOA-CHEF",
+              "count": 5,
+              "requiredGrade": "B1",
+              "requiredCorps": "Corps Techniques",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Appui technique à la division"
+            }
+          ]
+        },
+        {
+          "code": "GOUV-SGSG-DDR",
+          "name": "Division du Développement Régional",
+          "type": "DIVISION",
+          "description": "Division chargée du développement régional",
+          "level": 3,
+          "positions": [
+            {
+              "code": "GOUV-SGSG-DDR-CHEF",
+              "title": "Chef de la Division du Développement Régional",
+              "level": 2,
+              "parentPositionCode": "GOUV-SGSG-SG",
+              "count": 1,
+              "requiredGrade": "A2",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 10,
+              "isNominative": false,
+              "isManagerial": true,
+              "category": "DIRECTION",
+              "description": "Responsable de la division du développement régional"
+            },
+            {
+              "code": "GOUV-SGSG-DDR-SECRETAIRE",
+              "title": "Secrétaire",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DDR-CHEF",
+              "count": 1,
+              "requiredGrade": "B2",
+              "requiredCorps": "Corps des Secrétaires d'Administration",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "ADMINISTRATIF",
+              "description": "Secrétariat de la division"
+            },
+            {
+              "code": "GOUV-SGSG-DDR-AGENT-BUREAU",
+              "title": "Agent de Bureau",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DDR-CHEF",
+              "count": 2,
+              "requiredGrade": "C1",
+              "requiredCorps": "Corps des Agents Administratifs",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "SUPPORT",
+              "description": "Travaux de bureau de la division"
+            },
+            {
+              "code": "GOUV-SGSG-DDR-AGENT-COURRIER",
+              "title": "Agent de Courrier et Liaison",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DDR-CHEF",
+              "count": 1,
+              "requiredGrade": "C1",
+              "requiredCorps": "Corps des Agents Administratifs",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "SUPPORT",
+              "description": "Gestion du courrier et liaison de la division"
+            },
+            {
+              "code": "GOUV-SGSG-DDR-CHARGE-ETUDES",
+              "title": "Chargé d'Études",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DDR-CHEF",
+              "count": 2,
+              "requiredGrade": "A3",
+              "requiredCorps": "Corps des Administrateurs Civils",
+              "minimumExperienceYears": 3,
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Études en développement régional"
+            },
+            {
+              "code": "GOUV-SGSG-DDR-CADRE",
+              "title": "Cadre d'Appui",
+              "level": 3,
+              "parentPositionCode": "GOUV-SGSG-DDR-CHEF",
+              "count": 15,
+              "requiredGrade": "B1",
+              "requiredCorps": "Corps Techniques",
+              "isNominative": false,
+              "isManagerial": false,
+              "category": "TECHNIQUE",
+              "description": "Appui technique à la division"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "topLevelPositions": [
+    {
+      "code": "GOUV-GOUVERNEUR",
+      "title": "Gouverneur",
+      "level": 0,
+      "count": 1,
+      "requiredGrade": "A1",
+      "requiredCorps": "Corps des Administrateurs Civils",
+      "minimumExperienceYears": 20,
+      "isNominative": true,
+      "isManagerial": true,
+      "category": "DIRECTION",
+      "description": "Représentant du Gouvernement dans la région, autorité administrative de premier rang",
+      "responsibilities": "Direction et coordination de l'administration régionale, maintien de l'ordre public, supervision des préfectures et sous-préfectures",
+      "requiredQualifications": "Diplôme de l'ENA ou équivalent, expérience significative dans l'administration territoriale"
+    }
+  ],
+  "metadata": {
+    "totalPositions": 117,
+    "positionsByCategory": {
+      "DIRECTION": 10,
+      "TECHNIQUE": 76,
+      "ADMINISTRATIF": 12,
+      "SUPPORT": 19
+    },
+    "positionsByLevel": {
+      "0": 1,
+      "1": 4,
+      "2": 15,
+      "3": 93
+    },
+    "lastUpdated": "2025-11-10",
+    "changeLog": [
+      {
+        "version": 1,
+        "date": "2025-11-10",
+        "changes": "Ajout du SGSG avec 3 services et 4 divisions (DAAJ, DAESC, DPOA, DDR)",
+        "positionsAdded": 68
+      }
+    ]
+  }
+}

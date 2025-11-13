@@ -1,0 +1,35 @@
+{
+  "Moungo": [
+    {"name": "Nkongsamba 1er", "chefLieu": "Nkongsamba"},
+    {"name": "Nkongsamba 2e", "chefLieu": "Nkongsamba"},
+    {"name": "Nkongsamba 3e", "chefLieu": "Nkongsamba"},
+    {"name": "Bare-Bakem", "chefLieu": "Bare-Bakem"},
+    {"name": "Loum", "chefLieu": "Loum"},
+    {"name": "Manjo", "chefLieu": "Manjo"},
+    {"name": "Melong", "chefLieu": "Melong"},
+    {"name": "Nkondjock", "chefLieu": "Nkondjock"},
+    {"name": "Penja", "chefLieu": "Penja"},
+    {"name": "Nlonako", "chefLieu": "Nlonako"}
+  ],
+  "Nkam": [
+    {"name": "Yabassi", "chefLieu": "Yabassi"},
+    {"name": "Nkondjock", "chefLieu": "Nkondjock"}
+  ],
+  "Sanaga-Maritime": [
+    {"name": "Edéa 1er", "chefLieu": "Edéa"},
+    {"name": "Edéa 2e", "chefLieu": "Edéa"},
+    {"name": "Dizangue", "chefLieu": "Dizangue"},
+    {"name": "Ngambe", "chefLieu": "Ngambe"},
+    {"name": "Nyanon", "chefLieu": "Nyanon"},
+    {"name": "Pouma", "chefLieu": "Pouma"}
+  ],
+  "Wouri": [
+    {"name": "Douala 1er", "chefLieu": "Douala"},
+    {"name": "Douala 2e", "chefLieu": "Douala"},
+    {"name": "Douala 3e", "chefLieu": "Douala"},
+    {"name": "Douala 4e", "chefLieu": "Douala"},
+    {"name": "Douala 5e", "chefLieu": "Douala"},
+    {"name": "Douala 6e", "chefLieu": "Douala"}
+  ]
+}
+

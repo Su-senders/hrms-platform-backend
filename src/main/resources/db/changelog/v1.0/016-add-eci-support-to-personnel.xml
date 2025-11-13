@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <!--
+        Migration 016: Support E.C.I (En Cours d'Intégration)
+        - Rendre le matricule nullable (personnel peut ne pas avoir de matricule)
+        - Ajouter le flag is_eci (géré automatiquement)
+        - Ajouter la situation EN_COURS_INTEGRATION
+    -->
+
+    <!-- Changeset 1: Rendre le matricule nullable -->
+    <changeSet id="016-1" author="system">
+        <comment>
+            Permettre aux personnels d'être créés sans matricule (E.C.I)
+            Le matricule sera attribué plus tard
+        </comment>
+
+        <dropNotNullConstraint tableName="personnel"
+                               columnName="matricule"
+                               columnDataType="VARCHAR(50)"/>
+
+        <rollback>
+            <addNotNullConstraint tableName="personnel"
+                                  columnName="matricule"
+                                  columnDataType="VARCHAR(50)"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 2: Ajouter la colonne is_eci -->
+    <changeSet id="016-2" author="system">
+        <comment>
+            Ajouter le flag is_eci pour identifier automatiquement les personnels E.C.I
+            Ce flag est géré automatiquement par l'application
+        </comment>
+
+        <addColumn tableName="personnel">
+            <column name="is_eci" type="BOOLEAN" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="personnel" columnName="is_eci"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 3: Mettre à jour is_eci pour les personnels sans matricule existants -->
+    <changeSet id="016-3" author="system">
+        <comment>
+            Marquer comme E.C.I tous les personnels existants qui n'ont pas de matricule
+        </comment>
+
+        <sql>
+            UPDATE personnel
+            SET is_eci = true
+            WHERE matricule IS NULL OR matricule = '';
+        </sql>
+
+        <rollback>
+            <sql>
+                UPDATE personnel
+                SET is_eci = false
+                WHERE matricule IS NULL OR matricule = '';
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 4: Ajouter un index sur is_eci -->
+    <changeSet id="016-4" author="system">
+        <comment>
+            Index sur is_eci pour les recherches de personnels E.C.I
+        </comment>
+
+        <createIndex indexName="idx_personnel_is_eci" tableName="personnel">
+            <column name="is_eci"/>
+        </createIndex>
+
+        <rollback>
+            <dropIndex indexName="idx_personnel_is_eci" tableName="personnel"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 5: Ajouter un commentaire sur la colonne is_eci -->
+    <changeSet id="016-5" author="system" dbms="postgresql">
+        <sql>
+            COMMENT ON COLUMN personnel.is_eci IS
+            'Flag géré automatiquement: TRUE si matricule == null (E.C.I), FALSE si matricule != null';
+        </sql>
+
+        <rollback>
+            <sql>COMMENT ON COLUMN personnel.is_eci IS NULL;</sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 6: Mettre à jour la situation des personnels E.C.I existants -->
+    <changeSet id="016-6" author="system">
+        <comment>
+            Mettre la situation EN_COURS_INTEGRATION pour les personnels sans matricule
+            Note: Cette valeur doit correspondre à l'enum PersonnelSituation.EN_COURS_INTEGRATION
+        </comment>
+
+        <sql>
+            UPDATE personnel
+            SET situation = 'EN_COURS_INTEGRATION'
+            WHERE (matricule IS NULL OR matricule = '') AND deleted = false;
+        </sql>
+
+        <rollback>
+            <sql>
+                UPDATE personnel
+                SET situation = 'EN_FONCTION'
+                WHERE situation = 'EN_COURS_INTEGRATION';
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

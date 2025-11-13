@@ -1,0 +1,36 @@
+{
+  "Haut-Nyong": [
+    {"name": "Abong-Mbang", "chefLieu": "Abong-Mbang"},
+    {"name": "Atok", "chefLieu": "Atok"},
+    {"name": "Dimako", "chefLieu": "Dimako"},
+    {"name": "Doumé", "chefLieu": "Doumé"},
+    {"name": "Lomié", "chefLieu": "Lomié"},
+    {"name": "Messamena", "chefLieu": "Messamena"},
+    {"name": "Messok", "chefLieu": "Messok"},
+    {"name": "Mindourou", "chefLieu": "Mindourou"},
+    {"name": "Ngoyla", "chefLieu": "Ngoyla"}
+  ],
+  "Lom-et-Djérem": [
+    {"name": "Bertoua 1er", "chefLieu": "Bertoua"},
+    {"name": "Bertoua 2e", "chefLieu": "Bertoua"},
+    {"name": "Bélabo", "chefLieu": "Bélabo"},
+    {"name": "Garoua-Boulaï", "chefLieu": "Garoua-Boulaï"},
+    {"name": "Mandjou", "chefLieu": "Mandjou"},
+    {"name": "Ngoura", "chefLieu": "Ngoura"}
+  ],
+  "Boumba-et-Ngoko": [
+    {"name": "Yokadouma", "chefLieu": "Yokadouma"},
+    {"name": "Gari-Gombo", "chefLieu": "Gari-Gombo"},
+    {"name": "Moloundou", "chefLieu": "Moloundou"},
+    {"name": "Salapoumbé", "chefLieu": "Salapoumbé"}
+  ],
+  "Kadey": [
+    {"name": "Batouri", "chefLieu": "Batouri"},
+    {"name": "Kette", "chefLieu": "Kette"},
+    {"name": "Mbang", "chefLieu": "Mbang"},
+    {"name": "Ndelele", "chefLieu": "Ndelele"},
+    {"name": "Nguelebok", "chefLieu": "Nguelebok"},
+    {"name": "Ouli", "chefLieu": "Ouli"}
+  ]
+}
+

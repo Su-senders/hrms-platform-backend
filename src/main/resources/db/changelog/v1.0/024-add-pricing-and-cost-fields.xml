@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <!-- Ajout des champs de tarification aux formations -->
+    <changeSet id="24-1-add-pricing-fields-to-trainings" author="system">
+        <addColumn tableName="trainings">
+            <column name="pricing_type" type="VARCHAR(50)" defaultValue="FIXED">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fixed_price" type="DECIMAL(15,2)"/>
+            <column name="price_per_day" type="DECIMAL(15,2)"/>
+            <column name="price_per_person" type="DECIMAL(15,2)"/>
+            <column name="price_per_day_per_person" type="DECIMAL(15,2)"/>
+            <column name="currency" type="VARCHAR(3)" defaultValue="XAF">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+        <comment>Ajout des modes de tarification pour les formations</comment>
+    </changeSet>
+
+    <!-- Ajout des champs de coûts estimé et réel aux sessions -->
+    <changeSet id="24-2-add-cost-fields-to-training-sessions" author="system">
+        <addColumn tableName="training_sessions">
+            <column name="estimated_cost" type="DECIMAL(15,2)"/>
+            <column name="actual_cost" type="DECIMAL(15,2)"/>
+        </addColumn>
+
+        <comment>Ajout des champs de coûts estimé et réel</comment>
+    </changeSet>
+
+</databaseChangeLog>

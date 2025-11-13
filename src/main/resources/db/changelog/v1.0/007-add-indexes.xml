@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="007-add-indexes" author="hrms">
+        <!-- Personnel indexes -->
+        <createIndex tableName="personnel" indexName="idx_personnel_matricule">
+            <column name="matricule"/>
+        </createIndex>
+
+        <createIndex tableName="personnel" indexName="idx_personnel_cni">
+            <column name="cni_number"/>
+        </createIndex>
+
+        <createIndex tableName="personnel" indexName="idx_personnel_structure">
+            <column name="structure_id"/>
+        </createIndex>
+
+        <createIndex tableName="personnel" indexName="idx_personnel_position">
+            <column name="current_position_id"/>
+        </createIndex>
+
+        <createIndex tableName="personnel" indexName="idx_personnel_grade">
+            <column name="grade"/>
+        </createIndex>
+
+        <createIndex tableName="personnel" indexName="idx_personnel_situation">
+            <column name="situation"/>
+        </createIndex>
+
+        <createIndex tableName="personnel" indexName="idx_personnel_deleted">
+            <column name="deleted"/>
+        </createIndex>
+
+        <!-- Position indexes -->
+        <createIndex tableName="positions" indexName="idx_position_code">
+            <column name="code"/>
+        </createIndex>
+
+        <createIndex tableName="positions" indexName="idx_position_structure">
+            <column name="structure_id"/>
+        </createIndex>
+
+        <createIndex tableName="positions" indexName="idx_position_status">
+            <column name="status"/>
+        </createIndex>
+
+        <!-- Career movement indexes -->
+        <createIndex tableName="career_movements" indexName="idx_movement_personnel">
+            <column name="personnel_id"/>
+        </createIndex>
+
+        <createIndex tableName="career_movements" indexName="idx_movement_type">
+            <column name="movement_type"/>
+        </createIndex>
+
+        <createIndex tableName="career_movements" indexName="idx_movement_status">
+            <column name="status"/>
+        </createIndex>
+
+        <createIndex tableName="career_movements" indexName="idx_movement_date">
+            <column name="movement_date"/>
+        </createIndex>
+
+        <!-- Document indexes -->
+        <createIndex tableName="personnel_documents" indexName="idx_document_personnel">
+            <column name="personnel_id"/>
+        </createIndex>
+
+        <createIndex tableName="personnel_documents" indexName="idx_document_type">
+            <column name="document_type"/>
+        </createIndex>
+
+        <createIndex tableName="personnel_documents" indexName="idx_document_expiry">
+            <column name="expiry_date"/>
+        </createIndex>
+
+        <!-- Audit log indexes -->
+        <createIndex tableName="audit_logs" indexName="idx_audit_entity">
+            <column name="entity_type"/>
+            <column name="entity_id"/>
+        </createIndex>
+
+        <createIndex tableName="audit_logs" indexName="idx_audit_performed_at">
+            <column name="performed_at"/>
+        </createIndex>
+
+        <createIndex tableName="audit_logs" indexName="idx_audit_performed_by">
+            <column name="performed_by"/>
+        </createIndex>
+
+        <!-- Administrative structure indexes -->
+        <createIndex tableName="administrative_structures" indexName="idx_structure_code">
+            <column name="code"/>
+        </createIndex>
+
+        <createIndex tableName="administrative_structures" indexName="idx_structure_type">
+            <column name="type"/>
+        </createIndex>
+
+        <createIndex tableName="administrative_structures" indexName="idx_structure_parent">
+            <column name="parent_structure_id"/>
+        </createIndex>
+
+        <createIndex tableName="administrative_structures" indexName="idx_structure_level">
+            <column name="level"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

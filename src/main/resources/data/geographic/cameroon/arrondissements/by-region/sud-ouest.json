@@ -1,0 +1,46 @@
+{
+  "Fako": [
+    {"name": "Limbé 1er", "chefLieu": "Limbé"},
+    {"name": "Limbé 2e", "chefLieu": "Limbé"},
+    {"name": "Limbé 3e", "chefLieu": "Limbé"},
+    {"name": "Buea", "chefLieu": "Buea"},
+    {"name": "Tiko", "chefLieu": "Tiko"},
+    {"name": "Muyuka", "chefLieu": "Muyuka"},
+    {"name": "Idenau", "chefLieu": "Idenau"}
+  ],
+  "Koupé-Manengouba": [
+    {"name": "Bangem", "chefLieu": "Bangem"},
+    {"name": "Nguti", "chefLieu": "Nguti"},
+    {"name": "Tombel", "chefLieu": "Tombel"}
+  ],
+  "Lebialem": [
+    {"name": "Menji", "chefLieu": "Menji"},
+    {"name": "Alou", "chefLieu": "Alou"},
+    {"name": "Fontem", "chefLieu": "Fontem"}
+  ],
+  "Manyu": [
+    {"name": "Mamfé", "chefLieu": "Mamfé"},
+    {"name": "Akwaya", "chefLieu": "Akwaya"},
+    {"name": "Eyumodjock", "chefLieu": "Eyumodjock"},
+    {"name": "Upper Bayang", "chefLieu": "Upper Bayang"}
+  ],
+  "Meme": [
+    {"name": "Kumba 1er", "chefLieu": "Kumba"},
+    {"name": "Kumba 2e", "chefLieu": "Kumba"},
+    {"name": "Kumba 3e", "chefLieu": "Kumba"},
+    {"name": "Konye", "chefLieu": "Konye"},
+    {"name": "Mbonge", "chefLieu": "Mbonge"}
+  ],
+  "Ndian": [
+    {"name": "Mundemba", "chefLieu": "Mundemba"},
+    {"name": "Bamusso", "chefLieu": "Bamusso"},
+    {"name": "Dikome-Balue", "chefLieu": "Dikome-Balue"},
+    {"name": "Ekondo-Titi", "chefLieu": "Ekondo-Titi"},
+    {"name": "Idabato", "chefLieu": "Idabato"},
+    {"name": "Isangele", "chefLieu": "Isangele"},
+    {"name": "Kombo-Abedimo", "chefLieu": "Kombo-Abedimo"},
+    {"name": "Kombo-Itindi", "chefLieu": "Kombo-Itindi"},
+    {"name": "Toko", "chefLieu": "Toko"}
+  ]
+}
+

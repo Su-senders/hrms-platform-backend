@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <!--
+        Migration 018: Section B - Qualifications du Personnel
+        - Ajout des champs pour le diplôme de recrutement
+        - Ajout des champs pour le diplôme le plus élevé
+    -->
+
+    <!-- Changeset 1: Ajouter les champs du diplôme de recrutement -->
+    <changeSet id="018-1" author="system">
+        <comment>
+            Ajouter les informations relatives au diplôme de recrutement
+        </comment>
+
+        <addColumn tableName="personnel">
+            <!-- Intitulé du diplôme de recrutement -->
+            <column name="recruitment_diploma_title" type="VARCHAR(300)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Type de diplôme de recrutement -->
+            <column name="recruitment_diploma_type" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Date d'obtention du diplôme de recrutement -->
+            <column name="recruitment_diploma_date" type="DATE">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Lieu d'obtention du diplôme de recrutement -->
+            <column name="recruitment_diploma_place" type="VARCHAR(300)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Niveau d'instruction au recrutement -->
+            <column name="recruitment_education_level" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Spécialité du diplôme de recrutement -->
+            <column name="recruitment_diploma_specialty" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Domaine d'étude du diplôme de recrutement -->
+            <column name="recruitment_study_field" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="personnel" columnName="recruitment_diploma_title"/>
+            <dropColumn tableName="personnel" columnName="recruitment_diploma_type"/>
+            <dropColumn tableName="personnel" columnName="recruitment_diploma_date"/>
+            <dropColumn tableName="personnel" columnName="recruitment_diploma_place"/>
+            <dropColumn tableName="personnel" columnName="recruitment_education_level"/>
+            <dropColumn tableName="personnel" columnName="recruitment_diploma_specialty"/>
+            <dropColumn tableName="personnel" columnName="recruitment_study_field"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 2: Ajouter les champs du diplôme le plus élevé -->
+    <changeSet id="018-2" author="system">
+        <comment>
+            Ajouter les informations relatives au diplôme le plus élevé
+        </comment>
+
+        <addColumn tableName="personnel">
+            <!-- Intitulé du diplôme le plus élevé -->
+            <column name="highest_diploma_title" type="VARCHAR(300)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Type de diplôme le plus élevé -->
+            <column name="highest_diploma_type" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Date d'obtention du diplôme le plus élevé -->
+            <column name="highest_diploma_date" type="DATE">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Lieu d'obtention du diplôme le plus élevé -->
+            <column name="highest_diploma_place" type="VARCHAR(300)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Niveau d'instruction le plus élevé -->
+            <column name="highest_education_level" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Spécialité du diplôme le plus élevé -->
+            <column name="highest_diploma_specialty" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+
+            <!-- Domaine d'étude du diplôme le plus élevé -->
+            <column name="highest_study_field" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+
+        <rollback>
+            <dropColumn tableName="personnel" columnName="highest_diploma_title"/>
+            <dropColumn tableName="personnel" columnName="highest_diploma_type"/>
+            <dropColumn tableName="personnel" columnName="highest_diploma_date"/>
+            <dropColumn tableName="personnel" columnName="highest_diploma_place"/>
+            <dropColumn tableName="personnel" columnName="highest_education_level"/>
+            <dropColumn tableName="personnel" columnName="highest_diploma_specialty"/>
+            <dropColumn tableName="personnel" columnName="highest_study_field"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 3: Ajouter des index pour les recherches -->
+    <changeSet id="018-3" author="system">
+        <comment>
+            Ajouter des index pour améliorer les performances de recherche sur les qualifications
+        </comment>
+
+        <!-- Index sur recruitment_diploma_type -->
+        <createIndex indexName="idx_personnel_recruitment_diploma_type" tableName="personnel">
+            <column name="recruitment_diploma_type"/>
+        </createIndex>
+
+        <!-- Index sur recruitment_education_level -->
+        <createIndex indexName="idx_personnel_recruitment_education_level" tableName="personnel">
+            <column name="recruitment_education_level"/>
+        </createIndex>
+
+        <!-- Index sur recruitment_study_field -->
+        <createIndex indexName="idx_personnel_recruitment_study_field" tableName="personnel">
+            <column name="recruitment_study_field"/>
+        </createIndex>
+
+        <!-- Index sur highest_diploma_type -->
+        <createIndex indexName="idx_personnel_highest_diploma_type" tableName="personnel">
+            <column name="highest_diploma_type"/>
+        </createIndex>
+
+        <!-- Index sur highest_education_level -->
+        <createIndex indexName="idx_personnel_highest_education_level" tableName="personnel">
+            <column name="highest_education_level"/>
+        </createIndex>
+
+        <!-- Index sur highest_study_field -->
+        <createIndex indexName="idx_personnel_highest_study_field" tableName="personnel">
+            <column name="highest_study_field"/>
+        </createIndex>
+
+        <rollback>
+            <dropIndex indexName="idx_personnel_recruitment_diploma_type" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_recruitment_education_level" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_recruitment_study_field" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_highest_diploma_type" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_highest_education_level" tableName="personnel"/>
+            <dropIndex indexName="idx_personnel_highest_study_field" tableName="personnel"/>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 4: Contrainte CHECK pour les dates de diplômes -->
+    <changeSet id="018-4" author="system" dbms="postgresql,mysql,h2">
+        <comment>
+            S'assurer que les dates de diplômes sont cohérentes avec la date de naissance
+        </comment>
+
+        <sql>
+            ALTER TABLE personnel ADD CONSTRAINT chk_personnel_recruitment_diploma_date
+            CHECK (
+                recruitment_diploma_date IS NULL OR
+                (recruitment_diploma_date >= date_of_birth AND recruitment_diploma_date >= '1960-01-01')
+            );
+        </sql>
+
+        <sql>
+            ALTER TABLE personnel ADD CONSTRAINT chk_personnel_highest_diploma_date
+            CHECK (
+                highest_diploma_date IS NULL OR
+                (highest_diploma_date >= date_of_birth AND highest_diploma_date >= '1960-01-01')
+            );
+        </sql>
+
+        <rollback>
+            <sql>
+                ALTER TABLE personnel DROP CONSTRAINT IF EXISTS chk_personnel_recruitment_diploma_date;
+            </sql>
+            <sql>
+                ALTER TABLE personnel DROP CONSTRAINT IF EXISTS chk_personnel_highest_diploma_date;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 5: Contrainte CHECK pour les types de diplômes -->
+    <changeSet id="018-5" author="system" dbms="postgresql,mysql,h2">
+        <comment>
+            S'assurer que les types de diplômes sont valides
+        </comment>
+
+        <sql>
+            ALTER TABLE personnel ADD CONSTRAINT chk_personnel_recruitment_diploma_type
+            CHECK (
+                recruitment_diploma_type IS NULL OR
+                recruitment_diploma_type IN (
+                    'CEP', 'BEPC', 'CAP', 'PROBATOIRE', 'BACCALAUREAT', 'BT', 'BTS',
+                    'DEUG', 'DUT', 'LICENCE', 'LICENCE_PROFESSIONNELLE',
+                    'MAITRISE', 'MASTER', 'DESS', 'DEA',
+                    'DOCTORAT', 'PHD',
+                    'DIPLOME_INGENIEUR', 'DIPLOME_GRANDE_ECOLE',
+                    'AUTRE'
+                )
+            );
+        </sql>
+
+        <sql>
+            ALTER TABLE personnel ADD CONSTRAINT chk_personnel_highest_diploma_type
+            CHECK (
+                highest_diploma_type IS NULL OR
+                highest_diploma_type IN (
+                    'CEP', 'BEPC', 'CAP', 'PROBATOIRE', 'BACCALAUREAT', 'BT', 'BTS',
+                    'DEUG', 'DUT', 'LICENCE', 'LICENCE_PROFESSIONNELLE',
+                    'MAITRISE', 'MASTER', 'DESS', 'DEA',
+                    'DOCTORAT', 'PHD',
+                    'DIPLOME_INGENIEUR', 'DIPLOME_GRANDE_ECOLE',
+                    'AUTRE'
+                )
+            );
+        </sql>
+
+        <rollback>
+            <sql>
+                ALTER TABLE personnel DROP CONSTRAINT IF EXISTS chk_personnel_recruitment_diploma_type;
+            </sql>
+            <sql>
+                ALTER TABLE personnel DROP CONSTRAINT IF EXISTS chk_personnel_highest_diploma_type;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 6: Contrainte CHECK pour les niveaux d'instruction -->
+    <changeSet id="018-6" author="system" dbms="postgresql,mysql,h2">
+        <comment>
+            S'assurer que les niveaux d'instruction sont valides
+        </comment>
+
+        <sql>
+            ALTER TABLE personnel ADD CONSTRAINT chk_personnel_recruitment_education_level
+            CHECK (
+                recruitment_education_level IS NULL OR
+                recruitment_education_level IN (
+                    'AUCUN', 'PRIMAIRE',
+                    'SECONDAIRE_1ER_CYCLE', 'SECONDAIRE_2ND_CYCLE',
+                    'SUPERIEUR_1ER_CYCLE', 'SUPERIEUR_2EME_CYCLE', 'SUPERIEUR_3EME_CYCLE',
+                    'PROFESSIONNEL_SUPERIEUR'
+                )
+            );
+        </sql>
+
+        <sql>
+            ALTER TABLE personnel ADD CONSTRAINT chk_personnel_highest_education_level
+            CHECK (
+                highest_education_level IS NULL OR
+                highest_education_level IN (
+                    'AUCUN', 'PRIMAIRE',
+                    'SECONDAIRE_1ER_CYCLE', 'SECONDAIRE_2ND_CYCLE',
+                    'SUPERIEUR_1ER_CYCLE', 'SUPERIEUR_2EME_CYCLE', 'SUPERIEUR_3EME_CYCLE',
+                    'PROFESSIONNEL_SUPERIEUR'
+                )
+            );
+        </sql>
+
+        <rollback>
+            <sql>
+                ALTER TABLE personnel DROP CONSTRAINT IF EXISTS chk_personnel_recruitment_education_level;
+            </sql>
+            <sql>
+                ALTER TABLE personnel DROP CONSTRAINT IF EXISTS chk_personnel_highest_education_level;
+            </sql>
+        </rollback>
+    </changeSet>
+
+    <!-- Changeset 7: Commentaires sur les colonnes (PostgreSQL) -->
+    <changeSet id="018-7" author="system" dbms="postgresql">
+        <sql>
+            COMMENT ON COLUMN personnel.recruitment_diploma_title IS 'Intitulé complet du diplôme de recrutement';
+            COMMENT ON COLUMN personnel.recruitment_diploma_type IS 'Type de diplôme de recrutement (CEP, BEPC, BACCALAUREAT, LICENCE, etc.)';
+            COMMENT ON COLUMN personnel.recruitment_diploma_date IS 'Date d''obtention du diplôme de recrutement';
+            COMMENT ON COLUMN personnel.recruitment_diploma_place IS 'Lieu d''obtention du diplôme de recrutement (établissement, ville, pays)';
+            COMMENT ON COLUMN personnel.recruitment_education_level IS 'Niveau d''instruction au moment du recrutement';
+            COMMENT ON COLUMN personnel.recruitment_diploma_specialty IS 'Spécialité du diplôme de recrutement';
+            COMMENT ON COLUMN personnel.recruitment_study_field IS 'Domaine d''étude du diplôme de recrutement';
+
+            COMMENT ON COLUMN personnel.highest_diploma_title IS 'Intitulé complet du diplôme le plus élevé';
+            COMMENT ON COLUMN personnel.highest_diploma_type IS 'Type du diplôme le plus élevé (CEP, BEPC, BACCALAUREAT, LICENCE, etc.)';
+            COMMENT ON COLUMN personnel.highest_diploma_date IS 'Date d''obtention du diplôme le plus élevé';
+            COMMENT ON COLUMN personnel.highest_diploma_place IS 'Lieu d''obtention du diplôme le plus élevé (établissement, ville, pays)';
+            COMMENT ON COLUMN personnel.highest_education_level IS 'Niveau d''instruction le plus élevé atteint';
+            COMMENT ON COLUMN personnel.highest_diploma_specialty IS 'Spécialité du diplôme le plus élevé';
+            COMMENT ON COLUMN personnel.highest_study_field IS 'Domaine d''étude du diplôme le plus élevé';
+        </sql>
+
+        <rollback>
+            <sql>
+                COMMENT ON COLUMN personnel.recruitment_diploma_title IS NULL;
+                COMMENT ON COLUMN personnel.recruitment_diploma_type IS NULL;
+                COMMENT ON COLUMN personnel.recruitment_diploma_date IS NULL;
+                COMMENT ON COLUMN personnel.recruitment_diploma_place IS NULL;
+                COMMENT ON COLUMN personnel.recruitment_education_level IS NULL;
+                COMMENT ON COLUMN personnel.recruitment_diploma_specialty IS NULL;
+                COMMENT ON COLUMN personnel.recruitment_study_field IS NULL;
+
+                COMMENT ON COLUMN personnel.highest_diploma_title IS NULL;
+                COMMENT ON COLUMN personnel.highest_diploma_type IS NULL;
+                COMMENT ON COLUMN personnel.highest_diploma_date IS NULL;
+                COMMENT ON COLUMN personnel.highest_diploma_place IS NULL;
+                COMMENT ON COLUMN personnel.highest_education_level IS NULL;
+                COMMENT ON COLUMN personnel.highest_diploma_specialty IS NULL;
+                COMMENT ON COLUMN personnel.highest_study_field IS NULL;
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

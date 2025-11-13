@@ -1,0 +1,56 @@
+{
+  "Bamboutos": [
+    {"name": "Mbouda", "chefLieu": "Mbouda"},
+    {"name": "Babadjou", "chefLieu": "Babadjou"},
+    {"name": "Batcham", "chefLieu": "Batcham"},
+    {"name": "Galim", "chefLieu": "Galim"}
+  ],
+  "Hauts-Plateaux": [
+    {"name": "Baham", "chefLieu": "Baham"},
+    {"name": "Bamendjou", "chefLieu": "Bamendjou"},
+    {"name": "Bana", "chefLieu": "Bana"},
+    {"name": "Bangang", "chefLieu": "Bangang"},
+    {"name": "Batié", "chefLieu": "Batié"}
+  ],
+  "Haut-Nkam": [
+    {"name": "Bafang", "chefLieu": "Bafang"},
+    {"name": "Bana", "chefLieu": "Bana"},
+    {"name": "Bandja", "chefLieu": "Bandja"},
+    {"name": "Kékem", "chefLieu": "Kékem"}
+  ],
+  "Koung-Khi": [
+    {"name": "Bandjoun", "chefLieu": "Bandjoun"},
+    {"name": "Bayangam", "chefLieu": "Bayangam"},
+    {"name": "Demding", "chefLieu": "Demding"},
+    {"name": "Fokoué", "chefLieu": "Fokoué"}
+  ],
+  "Menoua": [
+    {"name": "Dschang", "chefLieu": "Dschang"},
+    {"name": "Fongo-Tongo", "chefLieu": "Fongo-Tongo"},
+    {"name": "Foumbot", "chefLieu": "Foumbot"},
+    {"name": "Nkong-Zem", "chefLieu": "Nkong-Zem"},
+    {"name": "Penka-Michel", "chefLieu": "Penka-Michel"},
+    {"name": "Santchou", "chefLieu": "Santchou"}
+  ],
+  "Mifi": [
+    {"name": "Bafoussam 1er", "chefLieu": "Bafoussam"},
+    {"name": "Bafoussam 2e", "chefLieu": "Bafoussam"},
+    {"name": "Bafoussam 3e", "chefLieu": "Bafoussam"},
+    {"name": "Bamougoum", "chefLieu": "Bamougoum"}
+  ],
+  "Ndé": [
+    {"name": "Bangangté", "chefLieu": "Bangangté"},
+    {"name": "Bazou", "chefLieu": "Bazou"},
+    {"name": "Tonga", "chefLieu": "Tonga"}
+  ],
+  "Noun": [
+    {"name": "Foumban", "chefLieu": "Foumban"},
+    {"name": "Foumbot", "chefLieu": "Foumbot"},
+    {"name": "Koutaba", "chefLieu": "Koutaba"},
+    {"name": "Koung-Khi", "chefLieu": "Koung-Khi"},
+    {"name": "Malantouen", "chefLieu": "Malantouen"},
+    {"name": "Massangam", "chefLieu": "Massangam"},
+    {"name": "Njimom", "chefLieu": "Njimom"}
+  ]
+}
+

@@ -1,0 +1,34 @@
+{
+  "Djérem": [
+    {"name": "Tibati", "chefLieu": "Tibati"},
+    {"name": "Banyo", "chefLieu": "Banyo"},
+    {"name": "Bankim", "chefLieu": "Bankim"},
+    {"name": "Mayo-Baléo", "chefLieu": "Mayo-Baléo"}
+  ],
+  "Faro-et-Déo": [
+    {"name": "Tignère", "chefLieu": "Tignère"},
+    {"name": "Galim", "chefLieu": "Galim"},
+    {"name": "Kontcha", "chefLieu": "Kontcha"},
+    {"name": "Poli", "chefLieu": "Poli"}
+  ],
+  "Mayo-Banyo": [
+    {"name": "Banyo", "chefLieu": "Banyo"},
+    {"name": "Bankim", "chefLieu": "Bankim"},
+    {"name": "Mayo-Baléo", "chefLieu": "Mayo-Baléo"}
+  ],
+  "Mbéré": [
+    {"name": "Meiganga", "chefLieu": "Meiganga"},
+    {"name": "Djohong", "chefLieu": "Djohong"},
+    {"name": "Ngaoundal", "chefLieu": "Ngaoundal"}
+  ],
+  "Vina": [
+    {"name": "Ngaoundéré 1er", "chefLieu": "Ngaoundéré"},
+    {"name": "Ngaoundéré 2e", "chefLieu": "Ngaoundéré"},
+    {"name": "Ngaoundéré 3e", "chefLieu": "Ngaoundéré"},
+    {"name": "Belel", "chefLieu": "Belel"},
+    {"name": "Mbe", "chefLieu": "Mbe"},
+    {"name": "Nganha", "chefLieu": "Nganha"},
+    {"name": "Nyambaka", "chefLieu": "Nyambaka"}
+  ]
+}
+

@@ -1,0 +1,55 @@
+{
+  "Diamaré": [
+    {"name": "Maroua 1er", "chefLieu": "Maroua"},
+    {"name": "Maroua 2e", "chefLieu": "Maroua"},
+    {"name": "Maroua 3e", "chefLieu": "Maroua"},
+    {"name": "Bogo", "chefLieu": "Bogo"},
+    {"name": "Dargala", "chefLieu": "Dargala"},
+    {"name": "Gobo", "chefLieu": "Gobo"},
+    {"name": "Meri", "chefLieu": "Meri"},
+    {"name": "Moulvoudaye", "chefLieu": "Moulvoudaye"},
+    {"name": "Petté", "chefLieu": "Petté"}
+  ],
+  "Logone-et-Chari": [
+    {"name": "Kousseri", "chefLieu": "Kousseri"},
+    {"name": "Blangoua", "chefLieu": "Blangoua"},
+    {"name": "Fotokol", "chefLieu": "Fotokol"},
+    {"name": "Goulfey", "chefLieu": "Goulfey"},
+    {"name": "Hile-Alifa", "chefLieu": "Hile-Alifa"},
+    {"name": "Logone-Birni", "chefLieu": "Logone-Birni"},
+    {"name": "Makari", "chefLieu": "Makari"},
+    {"name": "Waza", "chefLieu": "Waza"}
+  ],
+  "Mayo-Danay": [
+    {"name": "Yagoua", "chefLieu": "Yagoua"},
+    {"name": "Datcheka", "chefLieu": "Datcheka"},
+    {"name": "Doukoula", "chefLieu": "Doukoula"},
+    {"name": "Gobo", "chefLieu": "Gobo"},
+    {"name": "Gueme", "chefLieu": "Gueme"},
+    {"name": "Kalfou", "chefLieu": "Kalfou"},
+    {"name": "Kar-Hay", "chefLieu": "Kar-Hay"},
+    {"name": "Maga", "chefLieu": "Maga"},
+    {"name": "Pette", "chefLieu": "Pette"},
+    {"name": "Vele", "chefLieu": "Vele"}
+  ],
+  "Mayo-Kani": [
+    {"name": "Kaélé", "chefLieu": "Kaélé"},
+    {"name": "Guidiguis", "chefLieu": "Guidiguis"},
+    {"name": "Moutourwa", "chefLieu": "Moutourwa"},
+    {"name": "Mindif", "chefLieu": "Mindif"}
+  ],
+  "Mayo-Sava": [
+    {"name": "Mora", "chefLieu": "Mora"},
+    {"name": "Kolofata", "chefLieu": "Kolofata"},
+    {"name": "Tokombéré", "chefLieu": "Tokombéré"}
+  ],
+  "Mayo-Tsanaga": [
+    {"name": "Mokolo", "chefLieu": "Mokolo"},
+    {"name": "Bourrha", "chefLieu": "Bourrha"},
+    {"name": "Koza", "chefLieu": "Koza"},
+    {"name": "Mogodé", "chefLieu": "Mogodé"},
+    {"name": "Mozogo", "chefLieu": "Mozogo"},
+    {"name": "Souledé-Roua", "chefLieu": "Souledé-Roua"}
+  ]
+}
+

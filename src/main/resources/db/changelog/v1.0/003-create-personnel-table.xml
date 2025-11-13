@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="003-create-personnel-table" author="hrms">
+        <createTable tableName="personnel">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="matricule" type="VARCHAR(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="middle_name" type="VARCHAR(255)"/>
+            <column name="date_of_birth" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="place_of_birth" type="VARCHAR(255)"/>
+            <column name="gender" type="VARCHAR(20)"/>
+            <column name="marital_status" type="VARCHAR(20)"/>
+            <column name="nationality" type="VARCHAR(100)" defaultValue="Camerounaise"/>
+            <column name="cni_number" type="VARCHAR(50)"/>
+            <column name="cni_issue_date" type="DATE"/>
+            <column name="cni_expiry_date" type="DATE"/>
+            <column name="phone" type="VARCHAR(20)"/>
+            <column name="mobile" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(100)"/>
+            <column name="address" type="TEXT"/>
+            <column name="city" type="VARCHAR(100)"/>
+            <column name="region" type="VARCHAR(100)"/>
+            <column name="hire_date" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="service_start_date" type="DATE"/>
+            <column name="grade" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="corps" type="VARCHAR(100)"/>
+            <column name="category" type="VARCHAR(50)"/>
+            <column name="echelon" type="VARCHAR(50)"/>
+            <column name="indice" type="VARCHAR(50)"/>
+            <column name="current_position_id" type="BIGINT"/>
+            <column name="structure_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="situation" type="VARCHAR(50)"/>
+            <column name="retirement_date" type="DATE"/>
+            <column name="retirement_age" type="INT" defaultValueNumeric="60"/>
+            <column name="is_retirable_this_year" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="is_retirable_next_year" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="bank_name" type="VARCHAR(100)"/>
+            <column name="bank_account_number" type="VARCHAR(50)"/>
+            <column name="bank_branch" type="VARCHAR(100)"/>
+            <column name="photo_url" type="VARCHAR(500)"/>
+            <column name="official_cumul" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="notes" type="TEXT"/>
+            <column name="deleted" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+            <column name="deleted_by" type="VARCHAR(100)"/>
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="created_date" type="DATE"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column name="updated_date" type="DATE"/>
+            <column name="version" type="INT" defaultValueNumeric="0"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="personnel"
+                baseColumnNames="current_position_id"
+                constraintName="fk_personnel_position"
+                referencedTableName="positions"
+                referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint
+                baseTableName="personnel"
+                baseColumnNames="structure_id"
+                constraintName="fk_personnel_structure"
+                referencedTableName="administrative_structures"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

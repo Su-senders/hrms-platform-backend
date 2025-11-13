@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="005-create-personnel-documents-table" author="hrms">
+        <createTable tableName="personnel_documents">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="personnel_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="document_type" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="document_number" type="VARCHAR(100)"/>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT"/>
+            <column name="file_name" type="VARCHAR(255)"/>
+            <column name="file_path" type="VARCHAR(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file_size" type="BIGINT"/>
+            <column name="file_type" type="VARCHAR(100)"/>
+            <column name="issue_date" type="DATE"/>
+            <column name="expiry_date" type="DATE"/>
+            <column name="issuing_authority" type="VARCHAR(255)"/>
+            <column name="is_mandatory" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="is_verified" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="verified_by" type="VARCHAR(100)"/>
+            <column name="verification_date" type="DATE"/>
+            <column name="notes" type="TEXT"/>
+            <column name="version" type="INT" defaultValueNumeric="1"/>
+            <column name="replaced_document_id" type="BIGINT"/>
+            <column name="deleted" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+            <column name="deleted_by" type="VARCHAR(100)"/>
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="created_date" type="DATE"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column name="updated_date" type="DATE"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="personnel_documents"
+                baseColumnNames="personnel_id"
+                constraintName="fk_document_personnel"
+                referencedTableName="personnel"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

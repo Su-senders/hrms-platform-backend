@@ -1,0 +1,382 @@
+{
+  "code": "TPL-PREF",
+  "name": "Template Préfecture",
+  "appliesTo": "PREFECTURE",
+  "description": "Structure organisationnelle standard d'une Préfecture. Ce template est instancié pour chaque département du Cameroun.",
+  "version": 1,
+  "subStructures": [
+    {
+      "code": "PREF-SP",
+      "name": "Secrétariat Particulier",
+      "type": "SERVICE",
+      "description": "Secrétariat Particulier du Préfet",
+      "level": 2,
+      "positions": [
+        {
+          "code": "PREF-SP-SECRETAIRE-PARTICULIER",
+          "title": "Secrétaire Particulier",
+          "level": 1,
+          "count": 1,
+          "requiredGrade": "A3",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 5,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "DIRECTION",
+          "description": "Chef du Secrétariat Particulier du Préfet",
+          "responsibilities": "Gestion du secrétariat particulier, organisation de l'agenda du Préfet, coordination avec les services"
+        },
+        {
+          "code": "PREF-SP-SECRETAIRE-ASSISTANT",
+          "title": "Secrétaire / Assistant de Direction",
+          "level": 2,
+          "parentPositionCode": "PREF-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps des Secrétaires d'Administration",
+          "minimumExperienceYears": 3,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "ADMINISTRATIF",
+          "description": "Assistance de direction au Secrétariat Particulier"
+        },
+        {
+          "code": "PREF-SP-AGENT-BUREAU",
+          "title": "Agent de Bureau",
+          "level": 3,
+          "parentPositionCode": "PREF-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "C1",
+          "requiredCorps": "Corps des Agents Administratifs",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Travaux de bureau du Secrétariat Particulier"
+        },
+        {
+          "code": "PREF-SP-AGENT-COURRIER",
+          "title": "Agent de Courrier et Liaison",
+          "level": 3,
+          "parentPositionCode": "PREF-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "C1",
+          "requiredCorps": "Corps des Agents Administratifs",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Gestion du courrier et liaison du Secrétariat Particulier"
+        },
+        {
+          "code": "PREF-SP-CHAUFFEUR",
+          "title": "Chauffeur",
+          "level": 3,
+          "parentPositionCode": "PREF-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "D1",
+          "requiredCorps": "Personnel de Service",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Conduite du véhicule de service du Préfet"
+        },
+        {
+          "code": "PREF-SP-AGENT-SECURITE",
+          "title": "Agent de Sécurité",
+          "level": 3,
+          "parentPositionCode": "PREF-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "C1",
+          "requiredCorps": "Personnel de Sécurité",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "SUPPORT",
+          "description": "Sécurité du Préfet et de la Préfecture"
+        },
+        {
+          "code": "PREF-SP-AGENT-COMPTA-MAT",
+          "title": "Agent chargé des Opérations de Comptabilité Matières",
+          "level": 3,
+          "parentPositionCode": "PREF-SP-SECRETAIRE-PARTICULIER",
+          "count": 1,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps Techniques",
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Gestion de la comptabilité matières de la Préfecture"
+        }
+      ]
+    },
+    {
+      "code": "PREF-SAG",
+      "name": "Service des Affaires Générales",
+      "type": "SERVICE",
+      "description": "Service chargé des affaires générales de la Préfecture",
+      "level": 2,
+      "positions": [
+        {
+          "code": "PREF-SAG-CHEF",
+          "title": "Chef du Service des Affaires Générales",
+          "level": 2,
+          "count": 1,
+          "requiredGrade": "A3",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 5,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "TECHNIQUE",
+          "description": "Responsable du service des affaires générales",
+          "responsibilities": "Coordination des affaires générales, gestion administrative courante, accueil et courrier"
+        },
+        {
+          "code": "PREF-SAG-CADRE",
+          "title": "Cadre d'Appui",
+          "level": 3,
+          "parentPositionCode": "PREF-SAG-CHEF",
+          "count": 2,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps Techniques",
+          "minimumExperienceYears": 2,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Appui technique au service des affaires générales"
+        }
+      ]
+    },
+    {
+      "code": "PREF-SAAJP",
+      "name": "Service des Affaires Administratives, Juridiques et Politiques",
+      "type": "SERVICE",
+      "description": "Service chargé des affaires administratives, juridiques et politiques",
+      "level": 2,
+      "positions": [
+        {
+          "code": "PREF-SAAJP-CHEF",
+          "title": "Chef du Service des Affaires Administratives, Juridiques et Politiques",
+          "level": 2,
+          "count": 1,
+          "requiredGrade": "A3",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 5,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "TECHNIQUE",
+          "description": "Responsable du service des affaires administratives, juridiques et politiques",
+          "responsibilities": "Gestion des dossiers administratifs et juridiques, suivi des questions politiques"
+        },
+        {
+          "code": "PREF-SAAJP-CADRE",
+          "title": "Cadre d'Appui",
+          "level": 3,
+          "parentPositionCode": "PREF-SAAJP-CHEF",
+          "count": 2,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps Techniques",
+          "minimumExperienceYears": 2,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Appui technique au service des affaires administratives et juridiques"
+        }
+      ]
+    },
+    {
+      "code": "PREF-SAEF",
+      "name": "Service des Affaires Économiques et Financières",
+      "type": "SERVICE",
+      "description": "Service chargé des affaires économiques et financières",
+      "level": 2,
+      "positions": [
+        {
+          "code": "PREF-SAEF-CHEF",
+          "title": "Chef du Service des Affaires Économiques et Financières",
+          "level": 2,
+          "count": 1,
+          "requiredGrade": "A3",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 5,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "TECHNIQUE",
+          "description": "Responsable du service des affaires économiques et financières",
+          "responsibilities": "Suivi du développement économique, gestion financière, budget de la Préfecture"
+        },
+        {
+          "code": "PREF-SAEF-CADRE",
+          "title": "Cadre d'Appui",
+          "level": 3,
+          "parentPositionCode": "PREF-SAEF-CHEF",
+          "count": 2,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps Techniques",
+          "minimumExperienceYears": 2,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Appui technique au service des affaires économiques et financières"
+        }
+      ]
+    },
+    {
+      "code": "PREF-SASC",
+      "name": "Service des Affaires Sociales et Culturelles",
+      "type": "SERVICE",
+      "description": "Service chargé des affaires sociales et culturelles",
+      "level": 2,
+      "positions": [
+        {
+          "code": "PREF-SASC-CHEF",
+          "title": "Chef du Service des Affaires Sociales et Culturelles",
+          "level": 2,
+          "count": 1,
+          "requiredGrade": "A3",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 5,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "TECHNIQUE",
+          "description": "Responsable du service des affaires sociales et culturelles",
+          "responsibilities": "Coordination des affaires sociales, promotion culturelle, suivi des associations"
+        },
+        {
+          "code": "PREF-SASC-CADRE",
+          "title": "Cadre d'Appui",
+          "level": 3,
+          "parentPositionCode": "PREF-SASC-CHEF",
+          "count": 2,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps Techniques",
+          "minimumExperienceYears": 2,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Appui technique au service des affaires sociales et culturelles"
+        }
+      ]
+    },
+    {
+      "code": "PREF-SDL",
+      "name": "Service du Développement Local",
+      "type": "SERVICE",
+      "description": "Service chargé du développement local",
+      "level": 2,
+      "positions": [
+        {
+          "code": "PREF-SDL-CHEF",
+          "title": "Chef du Service du Développement Local",
+          "level": 2,
+          "count": 1,
+          "requiredGrade": "A3",
+          "requiredCorps": "Corps des Administrateurs Civils",
+          "minimumExperienceYears": 5,
+          "isNominative": false,
+          "isManagerial": true,
+          "category": "TECHNIQUE",
+          "description": "Responsable du service du développement local",
+          "responsibilities": "Planification et suivi des projets de développement local, coordination avec les collectivités"
+        },
+        {
+          "code": "PREF-SDL-CADRE",
+          "title": "Cadre d'Appui",
+          "level": 3,
+          "parentPositionCode": "PREF-SDL-CHEF",
+          "count": 2,
+          "requiredGrade": "B1",
+          "requiredCorps": "Corps Techniques",
+          "minimumExperienceYears": 2,
+          "isNominative": false,
+          "isManagerial": false,
+          "category": "TECHNIQUE",
+          "description": "Appui technique au service du développement local"
+        }
+      ]
+    }
+  ],
+  "topLevelPositions": [
+    {
+      "code": "PREF-PREFET",
+      "title": "Préfet",
+      "level": 0,
+      "count": 1,
+      "requiredGrade": "A1",
+      "requiredCorps": "Corps des Administrateurs Civils",
+      "minimumExperienceYears": 15,
+      "isNominative": true,
+      "isManagerial": true,
+      "category": "DIRECTION",
+      "description": "Représentant du Gouvernement dans le département, autorité administrative",
+      "responsibilities": "Direction et coordination de l'administration départementale, maintien de l'ordre public, supervision des sous-préfectures",
+      "requiredQualifications": "Diplôme de l'ENA ou équivalent, expérience significative dans l'administration territoriale"
+    },
+    {
+      "code": "PREF-ADJOINT-1",
+      "title": "Premier Adjoint Préfectoral",
+      "level": 1,
+      "parentPositionCode": "PREF-PREFET",
+      "count": 1,
+      "requiredGrade": "A2",
+      "requiredCorps": "Corps des Administrateurs Civils",
+      "minimumExperienceYears": 10,
+      "isNominative": false,
+      "isManagerial": true,
+      "category": "DIRECTION",
+      "description": "Premier assistant du Préfet dans la gestion administrative",
+      "responsibilities": "Assistance du Préfet, suppléance en cas d'absence, coordination de certains services"
+    },
+    {
+      "code": "PREF-ADJOINT-2",
+      "title": "Deuxième Adjoint Préfectoral",
+      "level": 1,
+      "parentPositionCode": "PREF-PREFET",
+      "count": 1,
+      "requiredGrade": "A2",
+      "requiredCorps": "Corps des Administrateurs Civils",
+      "minimumExperienceYears": 10,
+      "isNominative": false,
+      "isManagerial": true,
+      "category": "DIRECTION",
+      "description": "Deuxième assistant du Préfet dans la gestion administrative",
+      "responsibilities": "Assistance du Préfet, coordination de certains services, suivi de dossiers spécifiques"
+    },
+    {
+      "code": "PREF-ADJOINT-3",
+      "title": "Troisième Adjoint Préfectoral",
+      "level": 1,
+      "parentPositionCode": "PREF-PREFET",
+      "count": 1,
+      "requiredGrade": "A2",
+      "requiredCorps": "Corps des Administrateurs Civils",
+      "minimumExperienceYears": 10,
+      "isNominative": false,
+      "isManagerial": true,
+      "category": "DIRECTION",
+      "description": "Troisième assistant du Préfet dans la gestion administrative",
+      "responsibilities": "Assistance du Préfet, coordination de certains services, suivi des arrondissements"
+    }
+  ],
+  "metadata": {
+    "totalPositions": 26,
+    "positionsByCategory": {
+      "DIRECTION": 5,
+      "TECHNIQUE": 16,
+      "ADMINISTRATIF": 1,
+      "SUPPORT": 4
+    },
+    "positionsByLevel": {
+      "0": 1,
+      "1": 4,
+      "2": 6,
+      "3": 15
+    },
+    "lastUpdated": "2025-11-10",
+    "changeLog": [
+      {
+        "version": 1,
+        "date": "2025-11-10",
+        "changes": "Création initiale du template Préfecture avec 6 structures et 26 postes",
+        "positionsAdded": 26
+      }
+    ]
+  }
+}
